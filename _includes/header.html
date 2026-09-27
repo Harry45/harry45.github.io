@@ -3,7 +3,7 @@
 {% assign current_section = current[1] | default: '' | append: '' %}
 <header class="site-header" data-header>
   <div class="container site-header__inner">
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="site-title{% if page.layout == "home" %} site-title--hero{% endif %}" href="{{ site.baseurl }}/" data-site-title>{{ site.title }}</a>
 
     <nav class="site-nav" id="site-nav" aria-label="Main">
       {% for item in site.data.menu %}

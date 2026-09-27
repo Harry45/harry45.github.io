@@ -181,22 +181,87 @@
 }
 
 // CV-style entries on the About page (experience and education).
-.prose .role {
-    margin: 0 0 1.75rem;
+// Experience and education timelines on the About page: dates on the left,
+// a thin rule with a dot per entry, and the details on the right.
+.prose .timeline {
+    --tl-date: 9.5rem;
+    --tl-gap: 2.25rem;
+    --tl-x: calc(var(--tl-date) + var(--tl-gap) / 2);   // where the rule sits
+    position: relative;
+    margin: 0 0 1rem;
 
-    h3 { margin: 0 0 .15em; font-size: 1.08rem; }
+    &::before {
+        content: "";
+        position: absolute;
+        top: .5rem;
+        bottom: .5rem;
+        left: var(--tl-x);
+        width: 1px;
+        background: var(--border);
+    }
+
+    @include mobile {
+        --tl-date: 0px;
+        --tl-gap: 1.5rem;
+        --tl-x: 5px;
+    }
+}
+
+.prose .role {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--tl-date, 0) minmax(0, 1fr);
+    grid-template-areas: "meta title" "meta body";
+    column-gap: var(--tl-gap, 0);
+    margin: 0 0 1.9rem;
+
+    // The dot on the rule; the current role is filled.
+    &::before {
+        content: "";
+        position: absolute;
+        top: .45em;
+        left: calc(var(--tl-x, 0px) - 5px);
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 2px solid var(--accent);
+        box-sizing: border-box;
+    }
+    &.role--current::before {
+        background: var(--accent);
+        box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    h3 { grid-area: title; margin: 0 0 .15em; font-size: 1.08rem; }
     h3 a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: .2em; }
     h3 a:hover { color: var(--accent); text-decoration-color: currentColor; }
-    ul { margin: .5em 0 0; }
+    > ul, > p:not(.role__meta) { grid-area: body; }
+    ul { margin: .35em 0 0; }
     li { margin: .25em 0; }
-    > p:not(.role__meta) { margin-top: .5em; }
+    > p:not(.role__meta) { margin: .35em 0 0; }
+
+    @include mobile {
+        grid-template-areas: "title" "meta" "body";
+        grid-template-columns: minmax(0, 1fr);
+        padding-left: var(--tl-gap);
+    }
 }
 
 .prose p.role__meta {
-    margin: 0;
+    grid-area: meta;
+    margin: .1em 0 0;
     color: var(--muted);
-    font-size: .92rem;
+    font-size: .88rem;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
     text-align: left;
+
+    // On narrow screens the date and place share one line.
+    @include mobile {
+        br { display: none; }
+        .role__place::before { content: " · "; }
+    }
 }
 
 // Publication entries: titles, authors and venues read better ragged-right.

@@ -1,0 +1,66 @@
+// Print styles. Any page prints cleanly; the About page doubles as a CV
+// (it carries a print-only name and contact header).
+
+.print-header { display: none; }
+
+@media print {
+    @page { size: A4; margin: 16mm 16mm 18mm; }
+
+    :root, :root[data-theme="dark"] {
+        @include light-theme;
+        --accent:      #000000;
+        --accent-soft: transparent;
+        --muted:       #444444;
+        --text-2:      #222222;
+        --border:      #bbbbbb;
+    }
+
+    html { font-size: 9.5pt; }
+    html, body { background: #fff !important; }
+    body { font-size: 9.5pt; line-height: 1.4; }
+    .prose { font-size: 9.5pt; }
+    .prose p, .prose li { line-height: 1.4; }
+    .container, .container--prose { max-width: none; padding: 0; }
+
+    .site-header,
+    .site-footer,
+    .skip-link,
+    .toc,
+    .post-nav,
+    .about-photo,
+    .about-quote,
+    .jump-links,
+    .pub-filter,
+    .pub__actions,
+    .pub__abstract,
+    .pub__bibtex { display: none !important; }
+
+    a { color: inherit !important; text-decoration: none !important; }
+
+    h1, h2, h3 { break-after: avoid; }
+    h2 { margin: 1.3em 0 .5em; font-size: 13pt; }
+
+    // Pages with a print header (About) show it in place of the page title.
+    .container--prose:has(.print-header) .page-header { display: none; }
+
+    .print-header {
+        display: block;
+        margin: 0 0 1.2em;
+        padding-bottom: .6em;
+        border-bottom: 1px solid #000;
+
+        p { margin: 0; text-align: left !important; }
+    }
+    .print-header__name { font-size: 20pt; font-weight: 650; letter-spacing: -0.02em; }
+    .print-header__meta { font-size: 9.5pt; color: #444; }
+
+    .prose .timeline { --tl-date: 10rem; --tl-gap: 1.75rem; }
+    .prose .role { break-inside: avoid; margin-bottom: .8em; }
+    .prose .role ul { margin-top: .15em; }
+    .prose .role li { margin: 0; }
+    .prose .role::before { box-shadow: none !important; }
+    .pub { break-inside: avoid; padding: 8px 0; }
+
+    // No reveal animations on paper.
+    .reveal { opacity: 1 !important; transform: none !important; }
+}
