@@ -21,37 +21,21 @@ description: "Bayesian evidence, Bayes factors and Occam's razor in model select
 
 <p align="justify">Even with very good data, we may not know when to stop fitting. Two competing models may fit the data equally well, so how do we choose the more appropriate one? The answer is to prefer the simpler model, a principle known as <i>Occam’s razor</i>. A complex model that explains the data only slightly better than a simpler one should be penalised for the additional parameters it introduces, since extra parameters reduce predictive power. In this context, Bayesian model selection is becoming an increasingly important tool for determining whether the introduction of a new parameter is justified by the data.</p>
 
-<p align="justify">In this post, we focus on calculating the <b>Bayesian Evidence</b>, which can be regarded as the average likelihood under the prior. The evidence is the normalisation integral of the product of the likelihood and the prior. It is also known as the <i>model likelihood</i> or the <i>marginal likelihood</i>, and is denoted by $\mathbb{Z}$. It is interpreted as the probability of the data $\left(\mathcal{D}\right)$ given the model $\left(\mathcal{M}\right)$, and is given by</p>
-
-\begin{equation}
-\mathbb{Z}\equiv\mathcal{P}\left(\mathcal{D}\left|\mathcal{M}\right.\right)=\int\mathcal{P}\left(\mathcal{D}\left|\boldsymbol{\theta},\,\mathcal{M}\right.\right)\,\mathcal{P}\left(\boldsymbol{\theta}\left|\mathcal{M}\right.\right)\,d\boldsymbol{\theta}
-\end{equation}
-
-<p align="justify">where $\mathcal{P}\left(\mathcal{D}\left|\boldsymbol{\theta},\,\mathcal{M}\right.\right)$ is the likelihood function, which should reflect how the data were obtained, and $\mathcal{P}\left(\boldsymbol{\theta}\left|\mathcal{M}\right.\right)$ is the prior distribution for the parameters. Using Bayes' theorem, we can write
+<p align="justify">In this post, we focus on the <b>Bayesian evidence</b>, also known as the <i>model likelihood</i> or the <i>marginal likelihood</i>, and denoted by $\mathcal{Z}$. It is the probability of the data, $\mathcal{D}$, given a model, $\mathcal{M}$, and is obtained by averaging the likelihood over the prior:</p>
 
 $$
-\mathcal{P}\left(\mathcal{M}\left|\mathcal{D}\right.\right)=\dfrac{\mathcal{P}\left(\mathcal{D}\left|\mathcal{M}\right.\right)\mathcal{P}\left(\mathcal{M}\right)}{\mathcal{P}\left(\mathcal{D}\right)}
+\mathcal{Z} = \mathcal{P}(\mathcal{D}\,|\,\mathcal{M}) = \int \mathcal{P}(\mathcal{D}\,|\,\boldsymbol{\theta},\,\mathcal{M})\,\mathcal{P}(\boldsymbol{\theta}\,|\,\mathcal{M})\,d\boldsymbol{\theta}
 $$
 
-</p>
+<p align="justify">This averaging is what builds Occam's razor into the evidence. A model with many parameters, or with very broad priors, spreads its predictions over a wide range of possible datasets, so it assigns relatively little probability to the one we actually observed. It is rewarded only if its extra flexibility improves the fit enough to compensate.</p>
 
-<p align="justify">The left-hand side of this equation is the posterior probability of the model given the data. Consider two competing models $\mathcal{M}_{1}$ and $\mathcal{M}_{2}$. The ratio of their posterior probabilities, given the data, is
-
-$$
-\dfrac{\mathcal{P}\left(\mathcal{M}_{1}\left|\mathcal{D}\right.\right)}{\mathcal{P}\left(\mathcal{M}_{2}\left|\mathcal{D}\right.\right)}=\dfrac{\mathcal{P}\left(\mathcal{D}\left|\mathcal{M}_{1}\right.\right)}{\mathcal{P}\left(\mathcal{D}\left|\mathcal{M}_{2}\right.\right)}\,\dfrac{\mathcal{P}\left(\mathcal{M}_{1}\right)}{\mathcal{P}\left(\mathcal{M}_{2}\right)}
-$$
-</p>
-
-<p align="justify">Note that $\mathcal{P}\left(\mathcal{D}\right)$ is a constant and cancels when calculating the ratio of the models' posterior probabilities. The ratio $$B_{12}=\dfrac{\mathcal{P}\left(\mathcal{D}\left|\mathcal{M}_{1}\right.\right)}{\mathcal{P}\left(\mathcal{D}\left|\mathcal{M}_{2}\right.\right)}$$ is the <b>Bayes factor</b>, which is simply the ratio of the models' evidences. The ratio $$\dfrac{\mathcal{P}\left(\mathcal{M}_{1}\left|\mathcal{D}\right.\right)}{\mathcal{P}\left(\mathcal{M}_{2}\left|\mathcal{D}\right.\right)}$$ is the posterior odds while $$\dfrac{\mathcal{P}\left(\mathcal{M}_{1}\right)}{\mathcal{P}\left(\mathcal{M}_{2}\right)}$$ is the prior odds. In words, therefore: 
+<p align="justify">To compare two models, $\mathcal{M}_{1}$ and $\mathcal{M}_{2}$, we apply Bayes' theorem to the models themselves. The ratio of their posterior probabilities splits neatly into two parts:</p>
 
 $$
-\textrm{posterior odds}=\textrm{Bayes Factor}\times\textrm{prior odds}
+\textrm{posterior odds} = \textrm{Bayes factor} \times \textrm{prior odds}
 $$
-</p>
 
-<p align="justify">With non-committal priors on the models, that is, $\mathcal{P}\left(\mathcal{M}_{1}\right)=\mathcal{P}\left(\mathcal{M}_{2}\right)$, the posterior odds are simply equal to the Bayes factor. As $B_{12}$ increases, so does our belief that model $\mathcal{M}_{1}$ is better than model $\mathcal{M}_{2}$; otherwise, model $\mathcal{M}_{2}$ is preferred. The Bayes factor therefore indicates how the relative odds change in light of new data, irrespective of the prior odds of the models. It is typically interpreted using the Jeffreys' scale (see <a href="http://www.tandfonline.com/doi/abs/10.1080/01621459.1995.10476572">Kass et al., 1995</a>). an empirically determined scale shown in the table below.</p>
-
-
+<p align="justify">The prior odds express how much we favoured one model over the other before seeing the data. The <b>Bayes factor</b>, $B_{12}$, is simply the ratio of the two evidences, and captures how the data change those odds. With non-committal priors on the models, the posterior odds equal the Bayes factor. The larger $B_{12}$, the stronger our belief that $\mathcal{M}_{1}$ is the better model; if $B_{12}$ is below one, $\mathcal{M}_{2}$ is preferred. The Bayes factor is typically interpreted using the Jeffreys scale (see <a href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1995.10476572">Kass et al., 1995</a>), an empirically determined scale shown in the table below.</p>
 
 <center> 
 <table class="tableizer-table">

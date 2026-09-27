@@ -14,13 +14,13 @@ excerpt:
 description: "Three ways to sample any distribution, from SciPy to interpolation."
 ---
 
-<p align="justify">I recently needed to work out how to sample from an arbitrary distribution. Although this may seem a trivial question, a web search did not help much, and I also posted the problem on <a href="http://stackoverflow.com/questions/40263486/drawing-random-samples-from-any-distribution">Stack Overflow</a>. Here, we present three methods for generating random numbers from a distribution: built-in functions in <code>scipy</code>, acceptance-rejection sampling, and an interpolation method. The distribution we use is</p>
+<p align="justify">I recently needed to work out how to sample from an arbitrary distribution. Although this may seem a trivial question, a web search did not help much, and I also posted the problem on <a href="https://stackoverflow.com/questions/40263486/drawing-random-samples-from-any-distribution">Stack Overflow</a>. Here, we present three methods for generating random numbers from a distribution: built-in functions in <code>scipy</code>, acceptance-rejection sampling, and an interpolation method. The distribution we use is</p>
 
 \begin{align}
 \mathcal{P}\left(x\right) = \dfrac{k\,x^3}{e^{2x} - 0.1}
 \end{align}
 
-<p align="justify">where $k$ is the normalisation constant. We use the following notation: $\mathcal{P}\left(\centerdot\right)$ is the probability density function (PDF) and $\Phi\left(\centerdot\right)$ is the cumulative distribution function (CDF). The shape of this distribution resembles that of a black-body spectrum. It is used here purely to illustrate sampling; we do not discuss the physics of black-body radiation in this post.</p>
+<p align="justify">where $k$ is the normalisation constant. Below, PDF stands for the probability density function and CDF for the cumulative distribution function. The shape of this distribution resembles that of a black-body spectrum. It is used here purely to illustrate sampling; we do not discuss the physics of black-body radiation in this post.</p>
 
 <h2>Using Scipy</h2>
 
@@ -42,7 +42,7 @@ class blackbody(ss.rv_continuous):
         return (1.0/const) * p(x)
 {% endhighlight %}
 
-<p align="justify">We can now use these functions to compute $\mathcal{P}\left(x\right)$, $\Phi\left(x\right)$ and to generate samples from the underlying distribution. We first instantiate the distribution with lower and upper limits given by <code>a</code> and <code>b</code>, respectively. If these are not specified, the support defaults to $-\infty$ to $+\infty$.</p>
+<p align="justify">We can now use these functions to compute the PDF and the CDF, and to generate samples from the underlying distribution. We first instantiate the distribution with lower and upper limits given by <code>a</code> and <code>b</code>, respectively. If these are not specified, the support defaults to $-\infty$ to $+\infty$.</p>
 
 {% highlight python %}
 

@@ -4,7 +4,7 @@ title: Papers
 permalink: /papers/
 ---
 
-<p align="justify">A curated collection of papers I have found valuable, many of which have directly informed my research.</p>
+<p align="justify">A curated collection of papers he has found valuable, many of which have directly informed his research.</p>
 
 
 
@@ -103,7 +103,7 @@ Solving linear equations with messenger-field and conjugate gradient techniques 
 
 <li>Additive Gaussian Processes (arXiv, <a href="https://arxiv.org/abs/1112.4394"><i style="font-size:12px" class="fa">&#xf08e;</i></a>) </li>
 
-<li>Distributed Gaussian Processes (ICML, <a href="http://proceedings.mlr.press/v37/deisenroth15.pdf"><i style="font-size:12px" class="fa">&#xf08e;</i></a>) </li>
+<li>Distributed Gaussian Processes (ICML, <a href="https://proceedings.mlr.press/v37/deisenroth15.pdf"><i style="font-size:12px" class="fa">&#xf08e;</i></a>) </li>
 
 <li>Intelligent design: on the emulation of cosmological simulations (IOP, <a href="https://iopscience.iop.org/article/10.1088/0004-637X/728/2/137"><i style="font-size:12px" class="fa">&#xf08e;</i></a>) </li>
 

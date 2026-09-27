@@ -15,33 +15,19 @@ description: "Compressing weak lensing data with MOPED and emulating it with GPs
 ---
 
 
-<p align="justify">In this post, I briefly summarise my first PhD paper, published in <a href="https://academic.oup.com/mnras/article/497/2/2213/5873022">MNRAS</a> during my PhD. A key step in this work is the compression and emulation of the MOPED coefficients. MOPED, an algorithm developed by <a href="https://academic.oup.com/mnras/article/317/4/965/1039456">Heavens et al. 2000</a>, compresses a data vector of size $N$ to just $p$ numbers, where $p$ is the number of parameters in the model. The first and subsequent MOPED vectors are given, respectively, by</p>
+<p align="justify">In this post, I briefly summarise my first PhD paper, published in <a href="https://academic.oup.com/mnras/article/497/2/2213/5873022">MNRAS</a>. A key step in this work is the compression and emulation of the data using MOPED, an algorithm developed by <a href="https://academic.oup.com/mnras/article/317/4/965/1039456">Heavens et al. 2000</a>.</p>
 
-\begin{align}
-\mathbf{b}\_{1}=\frac{\mathbf{C}^{-1}\mathbf{\mu}\_{,1}}{\sqrt{\mathbf{\mu}\_{,1}^{\textrm{T}}\mathbf{C}^{-1}\mathbf{\mu}\_{,1}}}
-\end{align}
+<p align="justify">A weak lensing data vector can contain hundreds or thousands of numbers, yet the model it constrains has only a handful of parameters. MOPED compresses a data vector of size $N$ to just $p$ numbers, one per parameter. Each compressed number is a weighted sum of the data, with weights chosen so that it captures as much information as possible about its parameter. The weights are built from the derivatives of the model with respect to each parameter, scaled by the inverse of the noise covariance, and are made mutually orthogonal and normalised. For Gaussian data whose noise covariance does not depend on the parameters, this compression loses no information at the fiducial parameters used to construct it.</p>
 
-<p align="justify">and</p>
+<p align="justify">The compression also makes the likelihood remarkably simple. Because the weighting vectors are orthogonal and normalised, the compressed numbers are uncorrelated with unit variance, so the log-likelihood reduces to a sum of $p$ squared differences:</p>
 
-\begin{align}
-\mathbf{b}\_{\alpha}=\frac{\mathbf{C}^{-1}\mathbf{\mu}\_{,\alpha}-\sum_{\beta=1}^{\alpha-1}(\mathbf{\mu}\_{,\alpha}^{\textrm{T}}\mathbf{b}\_{\beta})\mathbf{b}\_{\beta}}{\sqrt{\mathbf{\mu}\_{,\alpha}^{\textrm{T}}\mathbf{C}^{-1}\mathbf{\mu}\_{,\alpha}-\sum_{\beta=1}^{\alpha-1}(\mathbf{\mu}\_{,\alpha}^{\textrm{T}}\mathbf{b}\_{\beta})^{2}}}\;\;(\alpha>1).
-\end{align}
+$$
+\log\mathcal{L} = -\frac{1}{2}\sum_{\alpha=1}^{p}\left(y_{\alpha} - \langle y_{\alpha}\rangle\right)^{2} + \textrm{constant}
+$$
 
+<p align="justify">where $y_{\alpha}$ are the compressed data and $\langle y_{\alpha}\rangle$ their theoretical predictions. An MCMC algorithm can then sample the posterior distribution of the model parameters directly from the compressed data.</p>
 
-<p align="justify"> The weighting vector, $\mathbf{b}$, captures as much information as possible about a specific model parameter $\mathbf{\theta}_{\alpha}$. It is used to form a linear combination of the data, $\mathbf{d}$, such that the compressed data are</p>
-
-\begin{align}
-y\_{\alpha}\equiv\mathbf{b}^{\textrm{T}}\_{\alpha}\mathbf{d}
-\end{align}
-
-
-<p align="justify">and the expected theoretical prediction is simply $y_{\alpha}\equiv\mathbf{b}^{\textrm{T}}_{\alpha}\mathbf{\mu}$. An MCMC algorithm can then be used to sample the posterior distribution of the model parameters from the MOPED-compressed data. Since the MOPED vectors are mutually orthogonal and normalised, the log-likelihood is simply</p>
-
-\begin{align}
-\textrm{log}\,\mathcal{L} = -\frac{1}{2}\sum\_{\alpha=1}^{p}(y\_{\alpha}-\mathbf{b}\_{\alpha}^{\textrm{T}}\mathbf{\mu})^{2}  + \textrm{constant}
-\end{align}
-
-<p align="justify">However, computing the MOPED coefficients at each step of an MCMC can be costly when the forward model itself is expensive. We therefore first generate a training set of $N$ Latin Hypercube samples (LHS), compute the MOPED coefficients at these points, and then model them with $p$ separate Gaussian Processes. These serve as surrogates for sampling the posterior distribution of the model parameters, with the result shown in the figure below: the posterior obtained with the full, accurate solver CLASS is shown in tan, and the posterior obtained with the emulator in blue. The contours correspond to the 68% and 95% credible intervals.</p>
+<p align="justify">However, computing the theoretical predictions at each step of an MCMC can still be costly when the forward model itself is expensive. We therefore first generate a training set of $N$ Latin Hypercube samples (LHS), compute the MOPED coefficients at these points, and then model them with $p$ separate Gaussian Processes. These serve as surrogates for sampling the posterior distribution of the model parameters, with the result shown in the figure below: the posterior obtained with the full, accurate solver CLASS is shown in tan, and the posterior obtained with the emulator in blue. The contours correspond to the 68% and 95% credible intervals.</p>
 
 {% include image.html url="/images/triangle_plot_derived_sigma_8_semi_gp_maximin_1000_7D.jpg" caption="The full posterior distribution of all parameters using the MOPED compression scheme."  width=800 align="center" %}
 

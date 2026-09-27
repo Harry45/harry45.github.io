@@ -14,135 +14,25 @@ excerpt:
 description: "The Gibbs sampler, with a worked Bayesian regression example in Python."
 ---
 
-<p align="justify">Gibbs sampling is a variant of the Markov Chain Monte Carlo (MCMC) method (<a href="https://en.wikipedia.org/wiki/Gibbs_sampling">Wikipedia</a>). The idea is to update one parameter at a time, which requires the conditional distributions. As with the standard Metropolis-Hastings algorithm, samples in a Gibbs chain are correlated with nearby samples, so if independent samples are required, the chain should be thinned by keeping only every n<sup>th</sup> value. In addition, the initial samples (the burn-in) are discarded, as they may not represent the underlying "true" distribution. The Gibbs sampling algorithm is as follows:
-<ol type="1">
-<li>Initialise $\boldsymbol{\theta}=\left(\theta_{0},\,\theta_{1},\,\ldots\theta_{n}\right)$.</li> 
-<li>Sample the parameters as follows:</li>
-<ul>
-<li>Sample $\theta_{0}'$ from $\theta_{0}\left|\theta_{1},\,\theta_{2},\,\ldots\theta_{n}\right.$.</li>
-<li>Sample $\theta_{1}'$ from $\theta_{1}\left|\theta_{0}',\,\theta_{2},\ldots\theta_{n}\right.$.</li>
-<li>$\vdots$</li>
-<li>Sample $\theta_{k}'$ from $\theta_{k}\left|\theta_{0}',\,\theta_{1}',\ldots,\,\theta_{k-1}',\,\theta_{k+1},\,\ldots\theta_{n}\right.$</li>
-</ul></ol>
+<p align="justify">Gibbs sampling is a variant of the Markov Chain Monte Carlo (MCMC) method (<a href="https://en.wikipedia.org/wiki/Gibbs_sampling">Wikipedia</a>). Rather than proposing a move in all parameters at once, it updates one parameter at a time, drawing each from its distribution conditional on the current values of all the others. Cycling through the parameters in this way, over many iterations, produces samples from the full joint posterior.</p>
 
+<p align="justify">As with the standard Metropolis-Hastings algorithm, each sample is correlated with its neighbours, so the chain can be thinned by keeping only every n<sup>th</sup> value if independent samples are needed. The first part of the chain (the burn-in) is also discarded, as it may not yet represent the target distribution. The main advantage of Gibbs sampling is that there is no proposal distribution to tune: every draw is accepted. The price is that we need to be able to sample from each conditional distribution, which is easy when those conditionals have a standard form.</p>
 
-<p align="justify">Note that this requires the conditional distributions. The advantage of Gibbs sampling is that it reduces the need for the "tuning" required by the Metropolis-Hastings algorithm. The starting point can simply be guessed or found using an optimisation algorithm.</p>
+<h2>Example: Bayesian Linear Regression</h2>
 
-<h2>Example - Bayesian Linear Regression</h2>
-
-<p align="justify">We use a simple Bayesian linear regression to illustrate Gibbs sampling in practice. Suppose we have the data points $\mathcal{D}=\left\{ x_{i},\,y_{i}\right\} $ for $i=1,\,2,\ldots N$ generated from the model $y=\theta_{0}+\theta_{1}x$.
-In other words,</p> 
-
-\begin{align}
-y=\theta_{0}+\theta_{1}x+\epsilon
-\end{align}
-
-
-<p align="justify">where $\epsilon\sim\mathcal{N}\left(0.0,\,\sigma_{n}^{2}\right)$. Our aim is to find the full posterior distributions of the parameters $\theta_{0}$ and $\theta_{1}$. The joint posterior distribution is simply</p>
-
-\begin{align}
-\mathcal{P}\left(\theta_{0},\,\theta_{1}\left|\mathcal{D}\right.\right)\propto\mathcal{P}\left(\mathcal{D}\left|\theta_{0},\,\theta_{1}\right.\right)\mathcal{P}\left(\theta_{0},\,\theta_{1}\right)
-\end{align}
-
-
-<p align="justify">where we assume factorisable priors, that is, $\mathcal{P}\left(\theta_{0},\,\theta_{1}\right)=\mathcal{P}\left(\theta_{0}\right)\,\mathcal{P}\left(\theta_{1}\right)$ and choose Gaussian priors such that</p>
-
-\begin{align}
-\mathcal{P}\left(\theta_{0}\right)\sim\mathcal{N}\left(\mu_{0},\,\Sigma_{0}^{2}\right)\hspace{2cm}\mathcal{P}\left(\theta_{1}\right)\sim\mathcal{N}\left(\mu_{1},\,\Sigma_{1}^{2}\right)
-\end{align}
-
-<h2>Procedures</h2>
-
-<p align="justify">We first define the design matrices $\mathbf{D}_{0}$, $\mathbf{D}_{1}$ and the vector $\mathbf{b}$ as follows:</p>
+<p align="justify">A straight-line fit illustrates the method well. Suppose we have data points $(x_{i},\,y_{i})$ generated from</p>
 
 $$
-\mathbf{D}_{0}=\left[\begin{matrix}
-\frac{1}{\sigma_{1}}\cr
-\frac{1}{\sigma_{2}}\cr
-\vdots\cr
-\vdots\cr
-\frac{1}{\sigma_{N}}
-\end{matrix}\right]\hspace{2cm}\mathbf{D}_{1}=\left[\begin{matrix}
-\frac{x_{1}}{\sigma_{1}}\cr
-\frac{x_{2}}{\sigma_{2}}\cr
-\vdots\cr
-\vdots\cr
-\frac{x_{N}}{\sigma_{N}}
-\end{matrix}\right]\hspace{2cm}\mathbf{b}=\left[\begin{matrix}
-\frac{y_{1}}{\sigma_{1}}\cr
-\frac{y_{2}}{\sigma_{2}}\cr
-\vdots\cr
-\vdots\cr
-\frac{y_{N}}{\sigma_{N}}
-\end{matrix}\right]
+y = \theta_{0} + \theta_{1}x + \epsilon
 $$
 
+<p align="justify">where $\epsilon$ is Gaussian noise with known standard deviation. We want the full posterior distribution of the intercept, $\theta_{0}$, and the gradient, $\theta_{1}$, and place an independent Gaussian prior on each.</p>
 
-<p align="justify">Since $\sigma_{n}$ is assumed to be known, the likelihood can be written as</p>
-
-
-\begin{align}
-\mathcal{P}\left(\mathcal{D}\left|\theta_{0},\,\theta_{1}\right.\right)\propto\textrm{exp}\left[-\dfrac{1}{2}\left(\mathbf{b}-\theta_{0}\mathbf{D}_{0}-\theta_{1}\mathbf{D}_{1}\right)^{\textrm{T}}\left(\mathbf{b}-\theta_{0}\mathbf{D}_{0}-\theta_{1}\mathbf{D}_{1}\right)\right]
-\end{align}
-
-
-<p align="justify"> and the prior as</p>
-
-\begin{align}
-\mathcal{P}\left(\theta_{0}\right)\propto\textrm{exp}\left[-\dfrac{1}{2}\left(\dfrac{\theta_{0}^{2}-2\mu_{0}\theta_{0}}{\Sigma_{0}^{2}}\right)\right]\textrm{exp}\left[-\dfrac{1}{2}\left(\dfrac{\theta_{1}^{2}-2\mu_{1}\theta_{1}}{\Sigma_{1}^{2}}\right)\right]
-\end{align}
-
-
-<p align="justify">The dependence of the log-joint posterior on $\theta_{0}$, that is, $\theta_{0}\left|\theta_{1},\,\mathcal{D}\right.$, is simply</p>
-
-$$
--\dfrac{1}{2}\left[\theta_{0}^{2}\left(\mathbf{D}_{0}^{\textrm{T}}\mathbf{D}_{0}+\dfrac{1}{\Sigma_{0}^{2}}\right)+\theta_{0}\left(2\theta_{1}\mathbf{D}_{0}^{\textrm{T}}\mathbf{D}_{1}-2\mathbf{b}^{\textrm{T}}\mathbf{D}_{0}-\dfrac{2\mu_{0}}{\Sigma_{0}^{2}}\right)\right]
-$$
-
-
-<p align="justify">This is a quadratic function of $\theta_{0}$. If $a=\mathbf{D}_{0}^{\textrm{T}}\mathbf{D}_{0}+\dfrac{1}{\Sigma_{0}^{2}}$
-and $b=2\theta_{1}\mathbf{D}_{0}^{\textrm{T}}\mathbf{D}_{1}-2\mathbf{b}^{\textrm{T}}\mathbf{D}_{0}-\dfrac{2\mu_{0}}{\Sigma_{0}^{2}}$,
-then </p>
-
-$$
-\mathcal{P}\left(\theta_{0}\left|\theta_{1},\,\mathcal{D}\right.\right)\propto\textrm{exp}\left[-\dfrac{1}{2}\left(a\theta_{0}^{2}+b\theta_{0}\right)\right]
-$$
-
-
-<p align="justify">Completing the square gives</p>
-
-$$
-\mathcal{P}\left(\theta_{0}\left|\theta_{1},\,\mathcal{D}\right.\right)\propto\textrm{exp}\left[-\dfrac{a}{2}\left(\theta_{0}+\dfrac{b}{2a}\right)^{2}\right]
-$$
-
-
-<p align="justify">This is a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$ given by</p>
-
-$$
-\mu=-\dfrac{b}{2a}=\dfrac{-\theta_{1}\Sigma_{0}^{2}\mathbf{D}_{0}^{\textrm{T}}\mathbf{D}_{1}+\Sigma_{0}^{2}\mathbf{b}^{\textrm{T}}\mathbf{D}_{0}+\mu_{0}}{\Sigma_{0}^{2}\mathbf{D}_{0}^{\textrm{T}}\mathbf{D}_{0}+1}
-$$
-
-
-$$
-\sigma^{2}=\dfrac{1}{a}=\dfrac{\Sigma_{0}^{2}}{\Sigma_{0}^{2}\mathbf{D}_{0}^{\textrm{T}}\mathbf{D}_{0}+1}
-$$
-
-
-<p align="justify">Similarly, it can be shown that the conditional distribution of $\theta_{1}$, that is, $\mathcal{P}\left(\theta_{1}\left|\theta_{0},\,\mathcal{D}\right.\right)$ is Gaussian with </p>
-
-$$
-\mu=\dfrac{-\theta_{0}\Sigma_{1}^{2}\mathbf{D}_{1}^{\textrm{T}}\mathbf{D}_{0}+\Sigma_{1}^{2}\mathbf{b}^{\textrm{T}}\mathbf{D}_{1}+\mu_{1}}{\Sigma_{1}^{2}\mathbf{D}_{1}^{\textrm{T}}\mathbf{D}_{1}+1}
-$$
-
-
-$$
-\sigma^{2}=\dfrac{\Sigma_{1}^{2}}{\Sigma_{1}^{2}\mathbf{D}_{1}^{\textrm{T}}\mathbf{D}_{1}+1}
-$$
-
+<p align="justify">This choice makes Gibbs sampling particularly convenient. With a Gaussian likelihood and Gaussian priors, the log-posterior is a quadratic function of each parameter when the other is held fixed. Completing the square then shows that each conditional distribution is itself Gaussian. For example, the distribution of $\theta_{0}$ given $\theta_{1}$ has a mean that balances what the data imply for the intercept (after subtracting the current gradient term) against the prior mean, weighted by their respective precisions, and a variance that shrinks as more data are added. The same holds for $\theta_{1}$ given $\theta_{0}$. Both conditionals are simple enough to write in a few lines of code, which is exactly what the functions below do.</p>
 
 <h2>Python Code</h2>
 
-<p align="justify">We now have all the mathematical tools needed to write the Python code. The simulated data are available on <a href="https://github.com/Harry45/Self-Taught/tree/master/Gibbs_Sampling">GitHub</a>. We first define the linear function and the true parameters: 2.0 for the gradient, $\theta_{1}$, and 0.5 for the y-intercept, $\theta_{0}$. In the code below, m and c denote the gradient and the y-intercept. We also specify the fraction of the chain to be treated as burn-in.</p>
+<p align="justify">We now have everything we need to write the Python code. The simulated data are available on <a href="https://github.com/Harry45/Self-Taught/tree/master/Gibbs_Sampling">GitHub</a>. We first define the linear function and the true parameters: 2.0 for the gradient, $\theta_{1}$, and 0.5 for the y-intercept, $\theta_{0}$. In the code below, m and c denote the gradient and the y-intercept. We also specify the fraction of the chain to be treated as burn-in.</p>
 
 
 {% highlight python %}
@@ -163,7 +53,7 @@ y     = data[:,1]
 sigma = data[:,2]
 {% endhighlight %}
 
-<p align="justify">The next step is to create the design matrices $\mathbf{D}_{0}$, $\mathbf{D}_{1}$ and the vector $\mathbf{b}$. We also define the hyper-parameters of the Gaussian priors and the functions used to sample $m$ and $c$, respectively. A further function is used to find the best-fit parameters by optimisation, which then serve as the starting point for the Gibbs sampler.</p>
+<p align="justify">The next step is to scale the data by their uncertainties, so that each point is weighted according to its precision. We also define the hyper-parameters of the Gaussian priors and the functions used to sample $m$ and $c$, respectively. A further function is used to find the best-fit parameters by optimisation, which then serve as the starting point for the Gibbs sampler.</p>
 
 {% highlight python %}
 # Create Design Matrices

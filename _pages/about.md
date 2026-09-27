@@ -78,7 +78,7 @@ permalink: /about/
 
 <h2>Skills</h2>
 
-<p><b>Methods:</b> Bayesian inference, Gaussian processes, normalising flows, deep learning, backtesting.<br>
+<p><b>Methods:</b> Bayesian inference, Gaussian processes, normalising flows, deep learning.<br>
 <b>Tools:</b> Python, PyTorch, JAX, NumPy, SciPy, pandas.</p>
 
 <h2>Education</h2>

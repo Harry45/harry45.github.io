@@ -4,7 +4,7 @@ title: Books
 permalink: /books/
 ---
 
-<p align="justify">Below is a selection of the books in my personal library, collected since January 2006.</p>
+<p align="justify">Below is a selection of the books in his personal library, collected since January 2006.</p>
 
 <p><b><font size="4">Machine Learning</font></b> (University)</p>
 <ol type="1">

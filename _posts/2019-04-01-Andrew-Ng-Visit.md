@@ -16,7 +16,7 @@ description: "Andrew Ng at Imperial on narrow AI, small data, jobs and education
 
 <p align="justify">Today, <a href="https://www.coursera.org/instructor/andrewng">Professor Andrew Ng</a> visited Imperial College London, both as a speaker in the Distinguished Lecture programme of the <a href="https://www.imperial.ac.uk/data-science/">Data Science Institute (DSI)</a> and to mark the DSI's fifth anniversary.</p>
 
-<img src="/images/andrew-ng.jpg" align="left" width = "400" style = "margin-right: 10px; margin-bottom: 10px"/>
+<img src="/images/andrew-ng.jpg" alt="Andrew Ng speaking to a packed lecture theatre at Imperial College London" align="left" width = "400" style = "margin-right: 10px; margin-bottom: 10px"/>
 
 <p align="justify">Unsurprisingly, the lecture theatre was packed with postgraduate students eager to hear him speak. Somewhat more surprisingly, Prof. Ng arrived with a yellow notebook rather than a laptop, when we were all expecting a digital presentation. Instead, he spoke directly to the audience and used the whiteboard to note a few key points. To me, this simple choice is the mark of a true leader. He began by talking about his courses at Stanford University, where I believe he is doing a fantastic job of revolutionising teaching methods. He described his approach, in which students watch videos before class and use the teaching sessions to discuss projects and ideas.</p>
 

@@ -24,13 +24,7 @@ description: "Fast joint analyses with normalising flows."
 
 <h2>The idea</h2>
 
-<p align="justify">A normalising flow writes $\boldsymbol{\theta}=f(\boldsymbol{z})$, with $\boldsymbol{z}$ drawn from a simple base distribution and $f$ an invertible neural network. The change of variables gives the density at any point:</p>
-
-$$
-\log p(\boldsymbol{\theta}) = \log p(\boldsymbol{z}) + \log\left|\det\frac{\partial \boldsymbol{z}}{\partial \boldsymbol{\theta}}\right|
-$$
-
-<p align="justify">and training is maximum likelihood on the chain samples. We use an affine autoregressive flow, whose Jacobian is triangular and therefore cheap. About 20,000 samples train a flow over five or six parameters in roughly two minutes on a desktop.</p>
+<p align="justify">A normalising flow starts from a simple distribution, such as a Gaussian, and passes it through a sequence of invertible neural network transformations that stretch and bend it into the shape of the target posterior. Because every step is invertible, the flow can both generate new samples and evaluate the density at any point, which is exactly what we need. Training is maximum likelihood on the chain samples. We use an affine autoregressive flow, which keeps the density calculation cheap. About 20,000 samples train a flow over five or six parameters in roughly two minutes on a desktop.</p>
 
 <p align="justify">Once each experiment has a flow, there are two ways to use it. A legacy experiment's flow can act as an informative prior for the likelihood of a new one, so the old nuisance parameters and forward model disappear from the analysis. Alternatively, the flows alone can be multiplied together (a product of experts), correcting for the shared prior:</p>
 

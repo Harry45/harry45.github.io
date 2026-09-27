@@ -17,7 +17,7 @@ description: "Likelihood emulation with Gaussian Processes and Bayesian optimisa
 ---
 <p align="justify">The paper '<b><font size="2.5">Cosmological parameter estimation via iterative emulation of likelihoods</font></b>' was recently posted on <a href="https://arxiv.org/abs/1912.08806">arXiv</a>. The idea is to use a Gaussian Process to emulate the log-likelihood and to progressively augment the training set using Bayesian Optimisation. In this post, I illustrate the technique with a simple straight-line fitting example, which should be easy to follow.</p>
 
-<img src="/images/bo.png" align="right" width = "400" style = "margin-left: 10px; margin-bottom: 10px"/>
+<img src="/images/bo.png" alt="Gaussian Process emulator of the log-likelihood with its acquisition function" align="right" width = "400" style = "margin-left: 10px; margin-bottom: 10px"/>
 
 <p><b><font size="3">Analytical Posterior</font></b></p>
 
@@ -28,70 +28,23 @@ $$
 $$
 </p>
 
-<p align="justify">We fix $\theta = 1$ and $\boldsymbol{\epsilon}\sim\mathcal{N}(0, 0.04^{2})$. We also assume a Gaussian prior for $\theta$, where $p(\theta)=\mathcal{N}(1,1)$. The posterior distribution of $\theta$ can be derived analytically and is itself Gaussian:
-$$
-p(\theta|\mathbf{y}) = \mathcal{N}(\mu, \sigma^{2})
-$$
+<p align="justify">We fix $\theta = 1$, add Gaussian noise with a standard deviation of 0.04, and place a Gaussian prior on $\theta$ with mean 1 and variance 1. Because the model is linear and both the noise and the prior are Gaussian, the posterior distribution of $\theta$ is also Gaussian and can be written down exactly. This gives us a reference answer against which to check the emulator.</p>
 
-where 
+<p><b><font size="3">Gaussian Process and Bayesian Optimisation</font></b></p>
 
-<ul>
-  <li>$\mu = 625\sigma^{2}\mathbf{D}^{\textrm{T}}\mathbf{y}$</li>
-  <li>$\sigma^{2}=(1 + 625\mathbf{D}^{\textrm{T}}\mathbf{D})^{-1}$</li>
-  <li>$\mathbf{D} = [x_{0},\,x_{1},\ldots x_{N-1}]^{\textrm{T}}$</li>
-</ul>
-</p>
+<p align="justify">A Gaussian Process (GP) is a distribution over functions (see <a href="/blog/2016/10/Gaussian-Process">this post</a> for an introduction). Trained on a handful of evaluations of the log-likelihood, it predicts the log-likelihood everywhere else, together with an uncertainty that is small near the training points and large far from them.</p>
 
-where the factor 625 arises from 1/0.04<sup>2</sup>.
-
-<p><b><font size="3">Gaussian Process and Bayesian Optimization</font></b></p>
-
-<p align="justify">A Gaussian Process is a joint multivariate Gaussian distribution over functions with a continuous domain. We do not cover it in detail here (see <a href="/blog/2016/10/Gaussian-Process">this post</a> for further details). The predictive distribution is Normal, with mean and variance given, respectively, by:
-
-$$
-f_{*} = \mathbf{k}_{*}^{\textrm{T}}\mathbf{K}^{-1}\mathbf{y}_{\textrm{train}}
-$$
-
-$$
-\sigma_{*}^{2} = k_{**} - \mathbf{k}_{*}^{\textrm{T}}\mathbf{K}^{-1}\mathbf{k}_{*}
-$$
-
-Bayesian Optimization, meanwhile, is a strategy for finding the optima of expensive objective functions using an acquisition function, which we discuss briefly below. A typical example of an expensive computation arises in cosmology, where a series of integrations and other costly calculations (for example, to account for systematics) must be performed before the log-likelihood can be computed in a Bayesian analysis.
+<p align="justify">Bayesian Optimisation is a strategy for finding the optimum of a function that is expensive to evaluate. A typical example arises in cosmology, where a series of integrations and other costly calculations (for example, to account for systematics) must be performed before the log-likelihood can be computed. Rather than evaluating the function on a dense grid, we use the GP to decide where the next evaluation will be most useful.</p>
 
 <p><b><font size="2">Acquisition Functions</font></b></p>
-One class of acquisition functions (also known as infill functions) is based on improvement. The <i>probability of improvement</i> (also called the maximum probability of improvement or the P-algorithm) is one example, given by:
+
+<p align="justify">That decision is made by an acquisition function, which scores every candidate point using the GP's prediction and uncertainty. Several choices exist. The <i>probability of improvement</i> picks the point most likely to beat the best value found so far. The <i>expected improvement</i> also accounts for how large that improvement is likely to be. The <i>upper confidence bound</i> (UCB) simply adds a multiple of the uncertainty to the prediction:</p>
 
 $$
-\textrm{PI}(\theta) = \Phi(z)
+\textrm{UCB}(\theta) = \mu(\theta) + \alpha\,\sigma(\theta)
 $$
 
-In the same spirit, the <i>expected improvement</i> considers not only the probability of improvement but also the magnitude of improvement that an additional point would provide:
-
-$$
-\textrm{EI}(\theta)=\begin{cases}
-\begin{array}{c}
-\left(\mu-f_{\textrm{max}}-\alpha\right)\Phi(z)+\sigma\phi(z)\\
-0
-\end{array} & \begin{array}{c}
-\textrm{if }\sigma>0\\
-\textrm{if }\sigma=0
-\end{array}\end{cases}
-$$
-
-where $\Phi(\centerdot)$ and $\phi(\centerdot)$ are the Cumulative Distribution Function (CDF) and Probability Density Function (PDF) of a normal distribution, respectively. $f_\textrm{max}$ is the maximum of the expensive function over a given set of inputs, $\theta$, and 
-
-$$
-z(\theta) = \frac{\mu(\theta) - f_{\textrm{max}} - \alpha}{\sigma(\theta)}.
-$$
-
-Another acquisition function, based on the upper confidence bound, is given by:
-
-$$
-\textrm{UCB}(\theta) = \mu + \alpha \sigma
-$$
-
-Note the additional parameter $\alpha$ in the acquisition functions. It is usually user-defined and controls the trade-off between exploration (regions of high uncertainty) and exploitation (regions with a high mean).
-</p>
+<p align="justify">The parameter $\alpha$, set by the user, controls the trade-off between exploitation (sampling where the predicted log-likelihood is high) and exploration (sampling where the GP is most uncertain).</p>
 
 <p><b><font size="3">Our Implementation</font></b></p>
 
@@ -111,7 +64,7 @@ We start with just four training points (generated using Latin Hypercube Samplin
  <tr><td align="center"><font color="red">1.0369</font></td><td align="center"><font color="red">-21.2069</font></td></tr>
 </tbody></table>
 
-<img src="/images/BO-Algorithm.png" align="right" width = "600" style = "margin-right: 10px; margin-bottom: 10px"/>
+<img src="/images/BO-Algorithm.png" alt="Bayesian Optimisation algorithm for iteratively adding training points" align="right" width = "600" style = "margin-right: 10px; margin-bottom: 10px"/>
 
 <p><b><font size="3">Results and Conclusions</font></b></p>
 
@@ -119,7 +72,7 @@ We start with just four training points (generated using Latin Hypercube Samplin
 In this setup, we can reconstruct the log-likelihood almost perfectly after augmenting the data set in just two iterations. As the right-hand panel below shows, the resulting posterior distribution of $\theta$ is identical to the exact, analytically derived one. The vertical dashed line marks the value $\theta=1$ used to generate the data.
 </p>
 
-<img src="/images/finalPosterior.png" align="center" width = "800" style = "margin-bottom: 0.1px"/>
+<img src="/images/finalPosterior.png" alt="Emulated log-likelihood and resulting posterior compared with the exact posterior" align="center" width = "800" style = "margin-bottom: 0.1px"/>
 
 <p align="justify">
 In high dimensions, however, the volume of the parameter space grows, and reconstructing a function perfectly (if that is the main objective) becomes difficult. Moreover, the acquisition functions themselves have multiple local optima (as seen in the figure at the top), and the choice of acquisition function is an interesting research question in its own right. Acquisition functions can be greedy, favouring exploitation over exploration, so the choice of $\alpha$ also matters.

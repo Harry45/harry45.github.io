@@ -26,7 +26,7 @@ description: "Curated courses and lectures on machine learning and deep learning
 
 <li>CPSC 540: Machine Learning 2013 (<a href="https://www.cs.ubc.ca/~nando/540-2013/lectures.html">Lecture Notes</a>, <a href="https://www.youtube.com/playlist?list=PLE6Wd9FR--EdyJ5lbFl8UuGjecvVw66F6">Videos</a>) by Prof. Nando de Freitas</li>
 
-<li>Machine Learning Summer School 2013 (<a href="http://mlss.tuebingen.mpg.de/2013/2013/speakers.html">Lecture Notes</a>, <a href="https://www.youtube.com/playlist?list=PLqJm7Rc5-EXFv6RXaPZzzlzo93Hl0v91E">Videos</a>)</li>
+<li>Machine Learning Summer School 2013 (Lecture Notes, <a href="https://www.youtube.com/playlist?list=PLqJm7Rc5-EXFv6RXaPZzzlzo93Hl0v91E">Videos</a>)</li>
 
 </ol>
 
@@ -36,7 +36,7 @@ description: "Curated courses and lectures on machine learning and deep learning
 
 <li>Deep Learning with PyTorch (<a href="https://atcold.github.io/pytorch-Deep-Learning/">Lecture Notes</a>, <a href="https://www.youtube.com/playlist?list=PLLHTzKZzVU9eaEyErdV26ikyolxOsz6mq">Videos</a>) by Prof. Yann LeCun and Alfredo Canziani</li>
 
-<li>MIT 6. S191 Introduction to Deep Learning (<a href="http://introtodeeplearning.com/">Lecture Notes</a>, <a href="https://www.youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI">Videos</a>)</li>
+<li>MIT 6. S191 Introduction to Deep Learning (<a href="https://introtodeeplearning.com/">Lecture Notes</a>, <a href="https://www.youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI">Videos</a>)</li>
 
 <li>Deep Learning (<a href="https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/">Lecture Notes</a>, <a href="https://www.youtube.com/playlist?list=PLE6Wd9FR--EfW8dtjAuPoTuPcqmOV53Fu">Videos</a>) by Prof. Nando de Freitas</li>
 
@@ -77,6 +77,6 @@ description: "Curated courses and lectures on machine learning and deep learning
 
 <ol>
 
-<li>Gaussian Process and Uncertainty Quantification Summer School, 2020 (<a href="http://gpss.cc/gpss20/program">Lectures</a>, <a href="https://www.youtube.com/playlist?list=PLZ_xn3EIbxZHynuWRdYp4WDtpKm5Xo9Ge">Videos</a>)</li>
+<li>Gaussian Process and Uncertainty Quantification Summer School, 2020 (<a href="https://gpss.cc/gpss20/program">Lectures</a>, <a href="https://www.youtube.com/playlist?list=PLZ_xn3EIbxZHynuWRdYp4WDtpKm5Xo9Ge">Videos</a>)</li>
 
 </ol>

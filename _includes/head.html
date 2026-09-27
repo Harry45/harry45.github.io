@@ -58,6 +58,33 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   {% endif %}
 
+{% if page.url == "/" %}
+  <!-- Structured data so search engines can identify the person behind the site. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ site.title | jsonify }},
+    "url": {{ site.url | jsonify }},
+    "image": {{ '/images/harry-headshot.jpg' | prepend: site.url | jsonify }},
+    "jobTitle": "Quantitative Researcher",
+    "worksFor": { "@type": "Organization", "name": "Fuse Energy" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Imperial College London" },
+      { "@type": "CollegeOrUniversity", "name": "University of Cape Town" },
+      { "@type": "CollegeOrUniversity", "name": "University of Mauritius" }
+    ],
+    "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
+    "sameAs": [
+      "https://www.linkedin.com/in/{{ site.linkedin_username }}",
+      "https://github.com/{{ site.github_username }}",
+      {{ site.google_scholar | jsonify }},
+      "https://orcid.org/{{ site.orcid }}"
+    ]
+  }
+  </script>
+{% endif %}
+
 {% if site.google_site_verification %}<meta name="google-site-verification" content="{{ site.google_site_verification}}" />{% endif %}
 {% if site.bing_webmastertools_id %}<meta name="msvalidate.01" content="{{ site.bing_webmastertools_id }}" />{% endif %}
 </head>
