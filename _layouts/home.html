@@ -9,7 +9,7 @@ layout: default
       <h1 class="hero__title">{{ site.title }}</h1>
       <p class="hero__lead">{{ page.lead }}</p>
       <div class="hero__actions">
-        <a class="button button--primary" href="{{ '/about/' | prepend: site.baseurl }}">About me</a>
+        <a class="button button--primary" href="{{ '/about/' | prepend: site.baseurl }}">About</a>
         <a class="button" href="{{ '/publications/' | prepend: site.baseurl }}">Publications</a>
         {% include social.html %}
       </div>
@@ -19,16 +19,20 @@ layout: default
 
   {% if page.affiliations %}
   <section class="affiliations" aria-label="Organisations">
-    <p class="affiliations__label">Worked and studied at</p>
-    <ul class="affiliations__list">
-      {% for org in page.affiliations %}<li>{{ org | escape }}</li>{% endfor %}
-    </ul>
+    {% for row in page.affiliations %}
+    <div class="affiliations__row">
+      <p class="affiliations__label">{{ row.label }}</p>
+      <ul class="affiliations__list">
+        {% for org in row.orgs %}<li>{{ org | escape }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
   </section>
   {% endif %}
 
   {% if page.focus %}
   <section class="section" aria-labelledby="focus-heading">
-    <div class="section__header"><h2 id="focus-heading">What I work on</h2></div>
+    <div class="section__header"><h2 id="focus-heading">Focus areas</h2></div>
     <div class="cards">
       {% for item in page.focus %}
       <div class="card">

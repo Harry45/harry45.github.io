@@ -150,15 +150,6 @@
     As the statistical power of imaging surveys grows, it is crucial to account for all systematic uncertainties. This is normally done by constructing a model of these uncertainties and then marginalizing over the additional model parameters. The resulting high dimensionality of the total parameter spaces makes inferring the cosmological parameters significantly more costly using traditional Monte-Carlo sampling methods. A particularly relevant example is the redshift distribution, $p(z)$, of the source samples, which may require tens of parameters to describe fully. However, relatively tight priors can be usually placed on these parameters through calibration of the associated systematics. In this paper we show, quantitatively, that a linearisation of the theoretical prediction with respect to these calibratable systematic parameters allows us to analytically marginalise over these extra parameters, leading to a factor $\sim 30$ reduction in the time needed for parameter inference, while accurately recovering the same posterior distributions for the cosmological parameters that would be obtained through a full numerical marginalisation over $160\; p(z)$ parameters. We demonstrate that this is feasible not only with current data and current achievable calibration priors but also for future Stage-IV datasets.
 
 - title: |-
-    Fast Approximate Model for the 3D Matter Power Spectrum
-  authors: |-
-    <strong class="me">Arrykrishna Mootoovaloo</strong>, Andrew Jaffe, Alan Heavens, Florent Leclercq
-  venue: "NeurIPS 2021"
-  year: 2021
-  abstract: |-
-    Many Bayesian inference problems in cosmology involve complex models. Despite the fact that these models have been meticulously designed, they can lead to intractable likelihood and each forward simulation itself can be computationally expensive, thus making the inverse problem of learning the model parameters a challenging task. In this paper, we develop an approximate model for the 3D matter power spectrum, $P_{\delta}(k,z)$, which is a central quantity in a weak lensing analysis. An important output of this approximate model, often referred to as surrogate model or emulator, are the first and second derivatives with respect to the input cosmological parameters. Without the emulator, the calculation of the derivatives requires multiple calls of the simulator, that is, the accurate Boltzmann solver, CLASS. We illustrate the application of the emulator in the calculation of different weak lensing and intrinsic alignment power spectra and we also demonstrate its performance on a toy simulated weak lensing dataset.
-
-- title: |-
     Kernel-Based Emulator for the 3D Matter Power Spectrum from CLASS
   authors: |-
     <strong class="me">Arrykrishna Mootoovaloo</strong>, Andrew Jaffe, Alan Heavens, Florent Leclercq
@@ -187,9 +178,18 @@
       pages = {100508}
     }
   selected: true
-  year: 2021
+  year: 2022
   abstract: |-
     The 3D matter power spectrum, $P_{\delta}(k,z)$ is a fundamental quantity in the analysis of cosmological data such as large-scale structure, 21cm observations, and weak lensing. Existing computer models (Boltzmann codes) such as CLASS can provide it at the expense of immoderate computational cost. In this paper, we propose a fast Bayesian method to generate the 3D matter power spectrum, for a given set of wavenumbers, $k$ and redshifts, $z$. Our code allows one to calculate the following quantities: the linear matter power spectrum at a given redshift (the default is set to 0); the non-linear 3D matter power spectrum with/without baryon feedback; the weak lensing power spectrum. The gradient of the 3D matter power spectrum with respect to the input cosmological parameters is also returned and this is useful for Hamiltonian Monte Carlo samplers. The derivatives are also useful for Fisher matrix calculations. In our application, the emulator is accurate when evaluated at a set of cosmological parameters, drawn from the prior, with the fractional uncertainty, $\Delta P_{\delta}/P_{\delta}$ centered on 0. It is also $\sim 300$ times faster compared to CLASS, hence making the emulator amenable to sampling cosmological and nuisance parameters in a Monte Carlo routine. In addition, once the 3D matter power spectrum is calculated, it can be used with a specific redshift distribution, $n(z)$ to calculate the weak lensing and intrinsic alignment power spectra, which can then be used to derive constraints on cosmological parameters in a weak lensing data analysis problem. The software ($\texttt{emuPK}$) can be trained with any set of points and is distributed on Github, and comes with a pre-trained set of Gaussian Process (GP) models, based on 1000 Latin Hypercube (LH) samples, which follow roughly the current priors for current weak lensing analyses.
+
+- title: |-
+    Fast Approximate Model for the 3D Matter Power Spectrum
+  authors: |-
+    <strong class="me">Arrykrishna Mootoovaloo</strong>, Andrew Jaffe, Alan Heavens, Florent Leclercq
+  venue: "NeurIPS 2021"
+  year: 2021
+  abstract: |-
+    Many Bayesian inference problems in cosmology involve complex models. Despite the fact that these models have been meticulously designed, they can lead to intractable likelihood and each forward simulation itself can be computationally expensive, thus making the inverse problem of learning the model parameters a challenging task. In this paper, we develop an approximate model for the 3D matter power spectrum, $P_{\delta}(k,z)$, which is a central quantity in a weak lensing analysis. An important output of this approximate model, often referred to as surrogate model or emulator, are the first and second derivatives with respect to the input cosmological parameters. Without the emulator, the calculation of the derivatives requires multiple calls of the simulator, that is, the accurate Boltzmann solver, CLASS. We illustrate the application of the emulator in the calculation of different weak lensing and intrinsic alignment power spectra and we also demonstrate its performance on a toy simulated weak lensing dataset.
 
 - title: |-
     Data Augmentation in a Hierarchical-Based Classification scheme for Variable Stars

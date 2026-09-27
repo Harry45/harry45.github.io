@@ -38,7 +38,7 @@ permalink: /about/
 
 <div class="role">
 <h3>Research Fellow · <a href="https://www.ox.ac.uk/">University of Oxford</a></h3>
-<p class="role__meta">Dec 2021 – Apr 2025 · Oxford</p>
+<p class="role__meta">Sep 2022 – Apr 2025 · Oxford</p>
 <ul>
   <li>Developed probabilistic ML for fast inference and supervised 4 summer interns.</li>
 </ul>
@@ -76,24 +76,29 @@ permalink: /about/
 </ul>
 </div>
 
+<h2>Skills</h2>
+
+<p><b>Methods:</b> Bayesian inference, Gaussian processes, normalising flows, deep learning, backtesting.<br>
+<b>Tools:</b> Python, PyTorch, JAX, NumPy, SciPy, pandas.</p>
+
 <h2>Education</h2>
 
 <div class="role">
 <h3>PhD in Physics · Imperial College London</h3>
 <p class="role__meta">2017 – 2021</p>
-<p align="justify">He completed his PhD at the Imperial Centre for Inference and Cosmology (<a href="https://www.imperial.ac.uk/astrophysics/centre-for-inference-and-cosmology/">ICIC</a>) under the supervision of Prof. Alan Heavens, Prof. Andrew Jaffe and Dr. Florent Leclercq. His doctoral research covered weak lensing, data compression and Gaussian Processes.</p>
+<p align="justify">Weak lensing, data compression and Gaussian processes, at the Imperial Centre for Inference and Cosmology (<a href="https://www.imperial.ac.uk/astrophysics/centre-for-inference-and-cosmology/">ICIC</a>). Supervised by Alan Heavens, Andrew Jaffe and Florent Leclercq.</p>
 </div>
 
 <div class="role">
 <h3>MSc in Astrophysics and Space Science · University of Cape Town</h3>
 <p class="role__meta">2015 – 2016</p>
-<p align="justify">Before joining Imperial College, he completed an MSc in Astrophysics and Space Science at the <a href="https://www.uct.ac.za/">University of Cape Town</a> through the National Astrophysics and Space Science Programme (<a href="https://www.star.ac.za/">NASSP</a>). After completing the coursework component in 2015, he carried out his research project, on radio astronomy and Bayesian statistics, at <a href="https://www.aims.ac.za/">AIMS</a> under the supervision of Prof. Bruce Bassett and Prof. Martin Kunz.</p>
+<p align="justify">Research project on Bayesian statistics and radio astronomy at <a href="https://www.aims.ac.za/">AIMS</a>, through <a href="https://www.star.ac.za/">NASSP</a>.</p>
 </div>
 
 <div class="role">
 <h3>BSc (Hons) Physics with Computing · University of Mauritius</h3>
 <p class="role__meta">2011 – 2014</p>
-<p align="justify">He read Physics with Computing at the University of Mauritius, where his final-year project, supervised by Dr. Somanah and Dr. Oozeer, focused on the analysis of X-ray cavities (<a href="/blog/2016/10/A-Brief-Overview-Of-My-Undergraduate-Project">project overview</a>).</p>
+<p align="justify">Final-year project on X-ray cavities (<a href="/blog/2016/10/A-Brief-Overview-Of-My-Undergraduate-Project">project overview</a>).</p>
 </div>
 
 <!-- <h3>Consultant - Data Science (<a href="https://www.voxcroft.com/">Voxcroft Analytics</a>)</h3>

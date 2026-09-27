@@ -16,6 +16,11 @@ google_scholar: "https://scholar.google.com/citations?user=UQ0U8SQAAAAJ&hl=en"
 
 markdown: kramdown
 
+# Hide Dart Sass @import deprecation noise when building locally
+sass:
+  quiet_deps: true
+  silence_deprecations: [import]
+
 # Other options
 permalink: blog/:year/:month/:title
 job.title: "Researcher"
@@ -25,6 +30,10 @@ excerpt_separator: "<!--more-->"
 # google_author: ""
 # google_site_verification: ""
 # bing_webmastertools_id: ""
+# Site pages live in _pages/ (each sets its own permalink)
+include:
+  - _pages
+
 # Not part of the published site
 exclude:
   - old/
