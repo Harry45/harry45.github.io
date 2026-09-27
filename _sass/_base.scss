@@ -26,15 +26,8 @@ h1, h2, h3, h4, h5, h6 {
     margin: 2em 0 .6em;
     scroll-margin-top: 84px; // clear the sticky header when linked to
 }
-// Page and section headings use a serif for an editorial feel; smaller
-// headings (cards, roles) stay in the sans for density.
-h1, h2 {
-    font-family: var(--font-serif);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-}
-h1 { font-size: 2.25rem; }
-h2 { font-size: 1.55rem; }
+h1 { font-size: 2.25rem; letter-spacing: -0.025em; }
+h2 { font-size: 1.5rem; }
 h3 { font-size: 1.2rem; }
 h4 { font-size: 1.05rem; }
 
