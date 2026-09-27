@@ -11,6 +11,11 @@ permalink: /publications/
 
 ## Papers and preprints
 
+<div class="pub-filter" role="group" aria-label="Filter publications" data-pub-filter hidden>
+  <button type="button" data-filter="all" aria-pressed="true">All</button>
+  <button type="button" data-filter="selected" aria-pressed="false">&#9733; Selected</button>
+</div>
+
 <ol class="pub-list">
 {% for pub in site.data.publications %}
   {% include publication.html pub=pub %}

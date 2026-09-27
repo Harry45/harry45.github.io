@@ -108,6 +108,43 @@
   });
 })();
 
+// Publications: "All / Selected" switch (hidden until this script runs).
+(function () {
+  var filter = document.querySelector('[data-pub-filter]');
+  var list = document.querySelector('.pub-list');
+  if (!filter || !list || !list.querySelector('.pub--selected')) return;
+  var buttons = filter.querySelectorAll('[data-filter]');
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var selectedOnly = button.getAttribute('data-filter') === 'selected';
+      list.classList.toggle('is-selected-only', selectedOnly);
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === button)); });
+    });
+  });
+  filter.hidden = false;
+})();
+
+// Gentle fade-in as sections scroll into view. The head script only adds
+// .js-reveal when motion is allowed and IntersectionObserver exists, so
+// content is never hidden otherwise.
+(function () {
+  var root = document.documentElement;
+  if (!root.classList.contains('js-reveal')) return;
+  var items = document.querySelectorAll('.section, .affiliations, .prose .role, .pub, .post-list__item');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  items.forEach(function (el) { el.classList.add('reveal'); observer.observe(el); });
+  // Safety net: never leave anything hidden (e.g. when printing).
+  window.addEventListener('beforeprint', function () {
+    items.forEach(function (el) { el.classList.add('is-visible'); });
+  });
+})();
+
 // Re-apply #section links once the page (and its lazy images) have loaded,
 // so links such as /travel/#europe land on the right heading.
 window.addEventListener('load', function () {

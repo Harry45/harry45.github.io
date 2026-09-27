@@ -4,6 +4,11 @@ title: About
 permalink: /about/
 ---
 
+<div class="print-header" aria-hidden="true">
+<p class="print-header__name">Arrykrishna Mootoovaloo</p>
+<p class="print-header__meta">London · arrykrish@gmail.com · harry45.github.io · linkedin.com/in/arrykrishna</p>
+</div>
+
 <img class="about-photo" src="/images/harry-headshot.jpg" alt="Arrykrishna Mootoovaloo" width="280" height="280">
 
 <!-- {% include image.html url="/images/A_Mootoovaloo.jpg" caption="" width=400 align="right" %} -->
@@ -18,11 +23,13 @@ permalink: /about/
 <p align="justify"><i>"You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future."</i> - Steve Jobs</p>
 </blockquote>
 
-<h2>Professional Experience</h2>
+<h2 id="experience">Professional Experience</h2>
 
-<div class="role">
+<div class="timeline">
+
+<div class="role role--current">
 <h3>Quantitative Researcher · <a href="https://www.fuseenergy.com/">Fuse Energy</a></h3>
-<p class="role__meta">Nov 2025 – present · London</p>
+<p class="role__meta">Nov 2025 – present<br><span class="role__place">London</span></p>
 <ul>
   <li>Build commodity hedging models, validated with a robust backtesting framework.</li>
 </ul>
@@ -30,7 +37,7 @@ permalink: /about/
 
 <div class="role">
 <h3>Quantitative Researcher (Intern) · <a href="https://www.qube-rt.com/">Qube Research &amp; Technologies</a></h3>
-<p class="role__meta">May 2025 – Oct 2025 · London</p>
+<p class="role__meta">May 2025 – Oct 2025<br><span class="role__place">London</span></p>
 <ul>
   <li>Built a deep learning pipeline for hidden-signal detection with turnover control.</li>
 </ul>
@@ -38,7 +45,7 @@ permalink: /about/
 
 <div class="role">
 <h3>Research Fellow · <a href="https://www.ox.ac.uk/">University of Oxford</a></h3>
-<p class="role__meta">Sep 2022 – Apr 2025 · Oxford</p>
+<p class="role__meta">Sep 2022 – Apr 2025<br><span class="role__place">Oxford</span></p>
 <ul>
   <li>Developed probabilistic ML for fast inference and supervised 4 summer interns.</li>
 </ul>
@@ -46,7 +53,7 @@ permalink: /about/
 
 <div class="role">
 <h3>Research Scientist (Intern) · <a href="https://www.huawei.com/uk/">Huawei Research &amp; Development</a></h3>
-<p class="role__meta">Oct 2022 – Apr 2023 · London</p>
+<p class="role__meta">Oct 2022 – Apr 2023<br><span class="role__place">London</span></p>
 <ul>
   <li>Researched interactive AI and built an API for diffusion-based image editing.</li>
 </ul>
@@ -54,7 +61,7 @@ permalink: /about/
 
 <div class="role">
 <h3>Postdoctoral Researcher · <a href="https://www.ox.ac.uk/">University of Oxford</a></h3>
-<p class="role__meta">Dec 2021 – Aug 2022 · Oxford</p>
+<p class="role__meta">Dec 2021 – Aug 2022<br><span class="role__place">Oxford</span></p>
 <ul>
   <li>Applied machine learning to find unusual astronomical objects.</li>
 </ul>
@@ -62,7 +69,7 @@ permalink: /about/
 
 <div class="role">
 <h3>Data Scientist · <a href="https://metrixs.net/">Metrixs</a></h3>
-<p class="role__meta">Oct 2021 – Jul 2022 · London</p>
+<p class="role__meta">Oct 2021 – Jul 2022<br><span class="role__place">London</span></p>
 <ul>
   <li>Built machine learning models for consumer and psychometric data.</li>
 </ul>
@@ -70,10 +77,12 @@ permalink: /about/
 
 <div class="role">
 <h3>Data Scientist · <a href="https://www.arcturus.io/">Arcturus</a></h3>
-<p class="role__meta">Jul 2019 – Aug 2020 · London</p>
+<p class="role__meta">Jul 2019 – Aug 2020<br><span class="role__place">London</span></p>
 <ul>
   <li>Built a company-rating methodology, plus NLP and geospatial data tools.</li>
 </ul>
+</div>
+
 </div>
 
 <h2>Skills</h2>
@@ -82,6 +91,8 @@ permalink: /about/
 <b>Tools:</b> Python, PyTorch, JAX, NumPy, SciPy, pandas.</p>
 
 <h2>Education</h2>
+
+<div class="timeline">
 
 <div class="role">
 <h3>PhD in Physics · Imperial College London</h3>
@@ -112,3 +123,5 @@ permalink: /about/
 
 <h3>Private Tutor (Mauritius)</h3>
 <p align="justify">Taught Mathematics, Physics, Additional Mathematics and Further Mathematics to more than 150 O-Level and A-Level students in Mauritius over a course of 4 years (2011 to 2014).</p> -->
+
+</div>

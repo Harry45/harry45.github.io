@@ -86,7 +86,7 @@
 .hero__title {
     font-size: clamp(2.2rem, 5vw, 3.25rem);
     line-height: 1.08;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.02em;
     margin: 0 0 1rem;
 }
 
@@ -179,7 +179,7 @@
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
     @media (max-width: $bp-nav) { grid-template-columns: 1fr; }
 }
@@ -280,10 +280,59 @@
 }
 
 .pub__venue {
-    font-size: .92rem;
-    color: var(--muted);
-    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: .35em 0 0;
 }
+
+.tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 6px;
+    background: var(--surface-2);
+    color: var(--text-2);
+    font-size: .76rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    line-height: 1.6;
+}
+
+// "All / Selected" switch above the publication list.
+.pub-filter {
+    display: inline-flex;
+    gap: 2px;
+    padding: 3px;
+    margin: 0 0 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+
+    button {
+        padding: 4px 14px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--text-2);
+        font: inherit;
+        font-size: .85rem;
+        font-weight: 550;
+        cursor: pointer;
+        transition: background .15s ease, color .15s ease;
+        &:hover { color: var(--text); }
+        &[aria-pressed="true"] { background: var(--bg); color: var(--text); box-shadow: 0 1px 2px rgba(16, 24, 40, .12); }
+    }
+}
+
+// Scroll fade-in (only active under html.js-reveal; see site.js).
+.js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+.js-reveal .reveal.is-visible { opacity: 1; transform: none; }
+
+.pub-list.is-selected-only .pub:not(.pub--selected) { display: none; }
 
 .pub__actions {
     display: flex;
@@ -388,8 +437,12 @@
     display: grid;
     grid-template-columns: 88px minmax(0, 1fr);
     gap: 16px;
-    padding: 16px 0;
+    padding: 16px 12px;
+    margin: 0 -12px;
     border-bottom: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: background .15s ease;
+    &:hover { background: var(--surface); }
 
     time {
         color: var(--muted);

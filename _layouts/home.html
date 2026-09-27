@@ -35,11 +35,11 @@ layout: default
     <div class="section__header"><h2 id="focus-heading">Focus areas</h2></div>
     <div class="cards">
       {% for item in page.focus %}
-      <div class="card">
+      {% if item.href %}<a class="card card--link" href="{{ item.href | prepend: site.baseurl }}">{% else %}<div class="card">{% endif %}
         <span class="card__icon">{% include icon.html name=item.icon %}</span>
         <h3>{{ item.title }}</h3>
         <p>{{ item.text }}</p>
-      </div>
+      {% if item.href %}</a>{% else %}</div>{% endif %}
       {% endfor %}
     </div>
   </section>
