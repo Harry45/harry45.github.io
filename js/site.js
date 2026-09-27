@@ -145,6 +145,23 @@
   });
 })();
 
+// Homepage: reveal the header name once the large hero name has scrolled
+// under the sticky header, so the name never appears twice on screen.
+(function () {
+  var title = document.querySelector('.site-title--hero');
+  var hero = document.querySelector('.hero__title');
+  if (!title) return;
+  if (!hero) { title.classList.add('is-shown'); return; }
+  var header = document.querySelector('[data-header]');
+  function update() {
+    var offset = header ? header.getBoundingClientRect().bottom : 0;
+    title.classList.toggle('is-shown', hero.getBoundingClientRect().bottom < offset);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
 // Re-apply #section links once the page (and its lazy images) have loaded,
 // so links such as /travel/#europe land on the right heading.
 window.addEventListener('load', function () {

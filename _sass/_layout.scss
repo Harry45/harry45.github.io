@@ -50,6 +50,13 @@
     &:hover { color: var(--text); text-decoration: none; }
 }
 
+// On the homepage the large name already sits in the hero, so the header
+// name stays hidden until the hero name scrolls out of view (see site.js).
+.js .site-title--hero {
+    transition: opacity .25s ease, visibility .25s ease;
+    &:not(.is-shown) { opacity: 0; visibility: hidden; }
+}
+
 .site-nav {
     display: flex;
     align-items: center;
