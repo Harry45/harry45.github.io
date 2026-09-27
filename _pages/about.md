@@ -11,10 +11,6 @@ permalink: /about/
 
 <p align="justify">Arrykrishna Mootoovaloo is a researcher in London who designs statistical and machine learning models that turn complex data into reliable decisions. Before moving into industry, he was a Research Fellow at the University of Oxford, developing deep learning and probabilistic models to accelerate scientific computation. He completed his PhD at Imperial College London, specialising in statistical machine learning, where his research focused on building <b>Gaussian Process</b> emulators to accelerate computationally expensive calculations in cosmology. He is also interested in applying machine learning to global challenges in sustainability.</p>
 
-<blockquote class="about-quote">
-<p align="justify"><i>"You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future."</i> - Steve Jobs</p>
-</blockquote>
-
 <h2 id="experience">Professional Experience</h2>
 
 <div class="timeline">
