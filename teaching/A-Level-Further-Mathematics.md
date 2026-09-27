@@ -5,11 +5,10 @@ permalink: /teaching/A-Level-Further-Mathematics/
 mathjax: true
 date:   2017-02-09 06:00:00
 author: A.Mootoovaloo
+extra_css: |
+  h3   {color: blue;}
 ---
 
-<style>
-h3   {color: blue;}
-</style>
 
 
 ## Paper 1 (Pure Mathematics) 

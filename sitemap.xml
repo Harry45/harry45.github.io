@@ -30,7 +30,12 @@ sitemap:
     {% endunless %}
   {% endfor %}
   {% for page in site.pages %}
-    {% unless page.sitemap.exclude == "yes" %}
+    {% assign last_char = page.url | slice: -1, 1 %}
+    {% assign is_html = false %}
+    {% if last_char == "/" %}{% assign is_html = true %}{% endif %}
+    {% if page.url contains ".html" %}{% assign is_html = true %}{% endif %}
+    {% if page.sitemap.exclude == "yes" %}{% assign is_html = false %}{% endif %}
+    {% if is_html %}
     <url>
       <loc>{{ site.url }}{{ page.url | remove: "index.html" }}</loc>
       {% if page.sitemap.lastmod %}
@@ -51,6 +56,6 @@ sitemap:
         <priority>0.3</priority>
       {% endif %}
     </url>
-    {% endunless %}
+    {% endif %}
   {% endfor %}
 </urlset>

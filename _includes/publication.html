@@ -1,0 +1,22 @@
+{% assign pub = include.pub %}
+<li class="pub{% if pub.selected %} pub--selected{% endif %}">
+  <div class="pub__year">{{ pub.year }}</div>
+  <div>
+    <p class="pub__title">{% if pub.selected %}<span class="pub__star" title="Selected publication" aria-label="Selected publication">&#9733;</span> {% endif %}{{ pub.title }}</p>
+    <p class="pub__authors">{{ pub.authors }}</p>
+    {% if pub.venue and pub.venue != "" %}<p class="pub__venue">{{ pub.venue }}</p>{% endif %}
+    {% if pub.links or pub.bibtex %}
+    <div class="pub__actions">
+      {% for link in pub.links %}<a class="pill" href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+      {% if pub.bibtex and include.abstract != false %}<button class="pill pill--button" type="button" data-copy-bibtex>BibTeX</button>{% endif %}
+    </div>
+    {% endif %}
+    {% if pub.bibtex and include.abstract != false %}<pre class="pub__bibtex" hidden>{{ pub.bibtex | escape }}</pre>{% endif %}
+    {% if pub.abstract and include.abstract != false %}
+    <details class="pub__abstract">
+      <summary>Abstract</summary>
+      <div>{{ pub.abstract }}</div>
+    </details>
+    {% endif %}
+  </div>
+</li>

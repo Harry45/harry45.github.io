@@ -1,38 +1,29 @@
+# Main navigation. Items with `children` render as a dropdown on desktop and
+# as a labelled group in the mobile menu; `href` is the group's landing page.
 - title: "About"
   href: "/about/"
-
-- title: "Blog"
-  href: "/blog/"
-
-- title: "Teaching"
-  href: "/teaching/"
-
-  subcategories:
-  - subtitle: "A-Level Mathematics (9709)"
-    subhref: "/teaching/A-Level-Mathematics/"
-  - subtitle: "A-Level Further Mathematics (9231)"
-    subhref: "/teaching/A-Level-Further-Mathematics/"
-  - subtitle: "A-Level Physics (9702)"
-    subhref: "/teaching/A-Level-Physics/"
 
 - title: "Publications"
   href: "/publications/"
 
-- title: "Papers"
-  href: "/papers/"
+- title: "Blog"
+  href: "/blog/"
 
-- title: "Books"
-  href: "/books/"
-
-- title: "Luminary"
-  href: "/luminary/"
-
-- title: "Travel"
-  href: "/travel/"
-
-  subcategories:
-  - subtitle: "Africa"
-    subhref: "/travel/Africa/"
-  - subtitle: "Europe"
-    subhref: "/travel/Europe/"
-
+- title: "More"
+  href: "/more/"
+  children:
+    - title: "Teaching"
+      href: "/teaching/"
+      description: "A-Level Mathematics, Further Mathematics and Physics topic outlines."
+    - title: "Papers"
+      href: "/papers/"
+      description: "A curated reading list of papers that have shaped my work."
+    - title: "Books"
+      href: "/books/"
+      description: "Books from my shelf on machine learning, physics and beyond."
+    - title: "Luminaries"
+      href: "/luminary/"
+      description: "Leading scientists I have had the privilege to meet."
+    - title: "Travel"
+      href: "/travel/"
+      description: "Conferences, schools and visits across Africa and Europe."

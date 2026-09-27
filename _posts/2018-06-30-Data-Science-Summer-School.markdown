@@ -11,12 +11,13 @@ tags:
   - 
   -
 excerpt:
+description: "Talks and tutorials from the Data Science Summer School in Paris."
 ---
 
 
-<p align="justify">The <a href="https://2018.ds3-datascience-polytechnique.fr/">Data Science Summer School</a> was organised from the 25<sup>th</sup> to the 29<sup>th</sup> June 2018 at the École Polytechnique. The school had a broad spectrum of topics covered and the presence of Prof. Yann Lecun, leading expert in the deep learning and Cédric Villani, winner of the Fields medal in 2010, did not go unnoticed.</p>
+<p align="justify">The <a href="https://2018.ds3-datascience-polytechnique.fr/">Data Science Summer School</a> took place from 25 to 29 June 2018 at the École Polytechnique. The school covered a broad spectrum of topics, and the presence of Prof. Yann LeCun, a leading expert in deep learning, and Cédric Villani, winner of the 2010 Fields Medal, did not go unnoticed.</p>
 
-<p align="justify">I will briefly touch upon the talks which I attended. All the session on Monday were mostly related to the general non-technical issues around Machine Learning and we had the following lectures:</p>
+<p align="justify">Below is a brief overview of the talks I attended. The Monday sessions focused mainly on broader, non-technical issues in machine learning, with the following lectures:</p>
 
 <ol type="1">
 
@@ -31,7 +32,7 @@ Fairness in Machine Learning
 </li>
 </ol>
 
-<p align="justify">On Tuesday and Wednesday, we had more technical talks in:</p>
+<p align="justify">Tuesday and Wednesday featured more technical talks:</p>
 
 <ol type="1">
 <li>
@@ -48,7 +49,7 @@ Deep Latent Variable Models in Medical Informatics
 </li>
 </ol>
 
-<p align="justify">On Thursday and Friday, we had tutorials and I chose the following two:</p>
+<p align="justify">Thursday and Friday were devoted to tutorials, from which I chose the following two:</p>
 <ol type="1">
 <li>
 Representing and Comparing Probabilities with Kernels

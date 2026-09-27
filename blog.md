@@ -1,21 +1,19 @@
 ---
 layout: page
 title: Blog
+lead: Writing on research, mathematics, machine learning and statistics.
 permalink: /blog/
 ---
 
-Below is a list of my recent posts. Most of my posts will be on academic research, Mathematics, Machine Learning and Statistics. 
-
-<ul class="listing">
+<ul class="post-list">
 {% for post in site.posts %}
-  {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
+  {% capture y %}{{ post.date | date: "%Y" }}{% endcapture %}
   {% if year != y %}
     {% assign year = y %}
-    <li class="listing-seperator">{{ y }}</li>
+    <li class="post-list__year">{{ y }}</li>
   {% endif %}
-  <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-  </li>
+  {% include post-item.html post=post date_format="%-d %b" %}
 {% endfor %}
 </ul>
+
+<p><a href="{{ '/categories/' | prepend: site.baseurl }}">Browse by category &rarr;</a> · <a href="{{ '/feed.xml' | prepend: site.baseurl }}">RSS feed</a></p>

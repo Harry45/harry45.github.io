@@ -4,7 +4,7 @@ title: Papers
 permalink: /papers/
 ---
 
-<p align="justify">Below is a collection of interesting papers. Some of them have been very useful and are relevant to my research.</p>
+<p align="justify">A curated collection of papers I have found valuable, many of which have directly informed my research.</p>
 
 
 
@@ -22,7 +22,7 @@ permalink: /papers/
 
 <li>Challenges in Deploying Machine Learning: a Survey of Case Studies (NeurIPS 2020, <a href="https://arxiv.org/pdf/2011.09926.pdf"><i style="font-size:12px" class="fa">&#xf08e;</i></a>) </li>
 
-<li>The carbon impact of artifcial intelligence (Nature Machine Intelligence, <a href="https://www.nature.com/articles/s42256-020-0219-9.pdf"><i style="font-size:12px" class="fa">&#xf08e;</i></a>) </li>
+<li>The carbon impact of artificial intelligence (Nature Machine Intelligence, <a href="https://www.nature.com/articles/s42256-020-0219-9.pdf"><i style="font-size:12px" class="fa">&#xf08e;</i></a>) </li>
 
 <li>Decolonial AI: Decolonial Theory as Sociotechnical Foresight in Artificial Intelligence (Philosophy and Technology, Springer, <a href="https://link.springer.com/content/pdf/10.1007/s13347-020-00405-8.pdf"><i style="font-size:12px" class="fa">&#xf08e;</i></a>) </li>
 

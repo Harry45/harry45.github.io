@@ -1,0 +1,386 @@
+# Publications, newest first. Rendered by _includes/publication.html.
+# Fields: title; authors (HTML, wrap your name in <strong class="me">); venue (plain text);
+# links (list of {label, url}); year; bibtex (optional); abstract (HTML, may contain TeX);
+# selected: true (optional) marks a paper with a star.
+
+- title: |-
+    KiDS+VIKING-450 cosmology with Bayesian hierarchical model redshift distributions
+  authors: |-
+    George T. Kyriacou, <strong class="me">Arrykrishna Mootoovaloo</strong>, Alan F. Heavens, Andrew H. Jaffe, Florent Leclercq, Konrad Kuijken
+  venue: "MNRAS"
+  links:
+    - label: arXiv
+      url: "https://arxiv.org/abs/2605.15078"
+  bibtex: |-
+    @misc{kyriacou2026kidsviking450cosmologybayesianhierarchical,
+          title={KiDS+VIKING-450 cosmology with Bayesian hierarchical model redshift distributions}, 
+          author={George T. Kyriacou and Arrykrishna Mootoovaloo and Alan F. Heavens and Andrew H. Jaffe and Florent Leclercq and Konrad Kuijken},
+          year={2026},
+          eprint={2605.15078},
+          archivePrefix={arXiv},
+          primaryClass={astro-ph.CO},
+          url={https://arxiv.org/abs/2605.15078}, 
+    }
+  year: 2026
+  abstract: |-
+    Tomographic redshift distributions from photometric data are crucial ingredients in cosmic shear analysis, since they are required for the theoretical calculation of the signal based on the redshift distribution of the galaxies where the shear field is sampled. In this paper, we develop as a proof of concept Leistedt et al.'s template-based Bayesian Hierarchical Model framework into an application to weak lensing data by sampling the redshift distributions of the galaxies in the KiDS+VIKING-450 survey. We also use a principal component analysis to provide a set of representative templates drawn from a large superset. For computational tractability, subsets of $10^5$ galaxies are chosen to determine the redshift distributions, and we test the sensitivity of the cosmological inference to the subset chosen, finding it to be subdominant compared to the statistical error. We marginalise over the inferred redshift distributions and find that the Bayesian method increases the clustering parameter compared with previous studies, alleviating the $S_8$ tension with Planck, where $S_{8}\equiv\sigma_{8}\sqrt{\Omega_{\textrm{m}}/0.3}=0.756\pm 0.039$, assuming flat $\Lambda$CDM. The tension with Planck for this survey is reduced from $2.3\sigma$ to $1.9\sigma$. We also infer a value for the matter density, $\Omega_{\textrm{m}}=0.31\pm 0.10$.
+
+- title: |-
+    emuflow: Normalising Flows for Joint Cosmological Analysis
+  authors: |-
+    <strong class="me">A. Mootoovaloo</strong>, C. García-García, D. Alonso, J. Ruiz-Zapatero
+  venue: "MNRAS · NeurIPS 2024"
+  links:
+    - label: arXiv
+      url: "https://arxiv.org/abs/2409.01407"
+  bibtex: |-
+    @misc{mootoovaloo2024mathttemuflownormalisingflowsjoint,
+          title={$\mathtt{emuflow}$: Normalising Flows for Joint Cosmological Analysis}, 
+          author={Arrykrishna Mootoovaloo and Carlos García-García and David Alonso and Jaime Ruiz-Zapatero},
+          year={2024},
+          eprint={2409.01407},
+          archivePrefix={arXiv},
+          primaryClass={astro-ph.CO},
+          url={https://arxiv.org/abs/2409.01407}, 
+    }
+  selected: true
+  year: 2024
+  abstract: |-
+    Given the growth in the variety and precision of astronomical datasets of interest for cosmology, the best cosmological constraints are invariably obtained by combining data from different experiments. At the likelihood level, one complication in doing so is the need to marginalise over large-dimensional parameter models describing the data of each experiment. These include both the relatively small number of cosmological parameters of interest and a large number of "nuisance" parameters. Sampling over the joint parameter space for multiple experiments can thus become a very computationally expensive operation. This can be significantly simplified if one could sample directly from the marginal cosmological posterior distribution of preceding experiments, depending only on the common set of cosmological parameters. In this paper, we show that this can be achieved by emulating marginal posterior distributions via normalising flows. The resulting trained normalising flow models can be used to efficiently combine cosmological constraints from independent datasets without increasing the dimensionality of the parameter space under study. We show that the method is able to accurately describe the posterior distribution of real cosmological datasets, as well as the joint distribution of different datasets, even when significant tension exists between experiments. The resulting joint constraints can be obtained in a fraction of the time it would take to combine the same datasets at the level of their likelihoods. We construct normalising flow models for a set of public cosmological datasets of general interests and make them available, together with the software used to train them, and to exploit them in cosmological parameter inference.
+
+- title: |-
+    Assessment of Gradient-Based Samplers in Standard Cosmological Likelihoods
+  authors: |-
+    <strong class="me">A. Mootoovaloo</strong>, J. Ruiz-Zapatero, C. García-García, D. Alonso
+  venue: "MNRAS · NeurIPS 2024"
+  links:
+    - label: arXiv
+      url: "https://arxiv.org/abs/2406.04725"
+  bibtex: |-
+    @misc{mootoovaloo2024assessmentgradientbasedsamplersstandard,
+          title={Assessment of Gradient-Based Samplers in Standard Cosmological Likelihoods}, 
+          author={Arrykrishna Mootoovaloo and Jaime Ruiz-Zapatero and Carlos García-García and David Alonso},
+          year={2024},
+          eprint={2406.04725},
+          archivePrefix={arXiv},
+          primaryClass={astro-ph.IM},
+          url={https://arxiv.org/abs/2406.04725}, 
+    }
+  year: 2024
+  abstract: |-
+    We assess the usefulness of gradient-based samplers, such as the No-U-Turn Sampler (NUTS), by comparison with traditional Metropolis-Hastings algorithms, in tomographic $3\times 2$ point analyses. Specifically, we use the DES Year 1 data and a simulated future LSST-like survey as representative examples of these studies, containing a significant number of nuisance parameters (20 and 32, respectively) that affect the performance of rejection-based samplers. To do so, we implement a differentiable forward model using JAX-COSMO (<a href="https://doi.org/10.21105/astro.2302.05163">Campagne et al. 2023</a>), and we use it to derive parameter constraints from both datasets using the NUTS algorithm as implemented in §4, and the Metropolis-Hastings algorithm as implemented in Cobaya (<a href="https://doi.org/10.1103/PhysRevD.87.103529">Lewis 2013</a>). When quantified in terms of the number of effective number of samples taken per likelihood evaluation, we find a relative efficiency gain of $\mathcal{O}(10)$ in favour of NUTS. However, this efficiency is reduced to a factor $\sim 2$ when quantified in terms of computational time, since we find the cost of the gradient computation (needed by NUTS) relative to the likelihood to be $\sim 4.5$ times larger for both experiments. We validate these results making use of analytical multi-variate distributions (a multivariate Gaussian and a Rosenbrock distribution) with increasing dimensionality. Based on these results, we conclude that gradient-based samplers such as NUTS can be leveraged to sample high dimensional parameter spaces in Cosmology, although the efficiency improvement is relatively mild for moderate $(\mathcal{O}(50))$ dimension numbers, typical of tomographic large-scale structure analyses.
+
+- title: |-
+    LimberJack.jl: auto-differentiable methods for angular power spectra analyses
+  authors: |-
+    J. Ruiz-Zapatero, D. Alonso, C. García-García, A. Nicola, <strong class="me">A. Mootoovaloo</strong>, J. M. Sullivan, M. Bonici, P. G. Ferreira
+  venue: "The Open Journal of Astrophysics"
+  links:
+    - label: Journal
+      url: "https://astro.theoj.org/article/92854-limberjack-jl-auto-differentiable-methods-for-angular-power-spectra-analyses"
+    - label: arXiv
+      url: "https://arxiv.org/abs/2310.08306"
+  bibtex: |-
+    @misc{ruizzapatero2024limberjackjlautodifferentiablemethodsangular,
+          title={LimberJack.jl: auto-differentiable methods for angular power spectra analyses}, 
+          author={J. Ruiz-Zapatero and D. Alonso and C. García-García and A. Nicola and A. Mootoovaloo and J. M. Sullivan and M. Bonici and P. G. Ferreira},
+          year={2024},
+          eprint={2310.08306},
+          archivePrefix={arXiv},
+          primaryClass={astro-ph.CO},
+          doi={https://doi.org/10.21105/astro.2310.08306},
+          url={https://arxiv.org/abs/2310.08306}, 
+    }
+  year: 2023
+  abstract: |-
+    We present LimberJack.jl, a fully auto-differentiable code for cosmological analyses of 2 point auto- and cross-correlation measurements from galaxy clustering, CMB lensing and weak lensing data written in Julia. Using Julia's auto-differentiation ecosystem, LimberJack.jl can obtain gradients for its outputs up to an order of magnitude faster than traditional finite difference methods. This makes LimberJack.jl greatly synergistic with gradient-based sampling methods, such as Hamiltonian Monte Carlo, capable of efficiently exploring parameter spaces with hundreds of dimensions. We first prove LimberJack.jl's reliability by reanalysing the DES Y1 $3\times 2$-point data. We then showcase its capabilities by using a $\mathcal{O}(100)$ parameters Gaussian Process to reconstruct the cosmic growth from a combination of DES Y1 galaxy clustering and weak lensing data, eBOSS QSO's, CMB lensing and redshift-space distortions. Our Gaussian process reconstruction of the growth factor is statistically consistent with the $\Lambda$CDM Planck 2018 prediction at all redshifts. Moreover, we show that the addition of RSD data is extremely beneficial to this type of analysis, reducing the uncertainty in the reconstructed growth factor by $20\%$ on average across redshift. LimberJack.jl is a fully open-source project available on Julia's general repository of packages and GitHub.
+
+- title: |-
+    Extreme data compression for Bayesian model comparison
+  authors: |-
+    Alan F. Heavens, <strong class="me">Arrykrishna Mootoovaloo</strong>, Roberto Trotta, Elena Sellentin
+  venue: "JCAP"
+  links:
+    - label: Journal
+      url: "https://iopscience.iop.org/article/10.1088/1475-7516/2023/11/048/pdf"
+    - label: arXiv
+      url: "https://arxiv.org/abs/2306.15998"
+  bibtex: |-
+    @article{Heavens_2023,
+      title = {Extreme data compression for Bayesian model comparison},
+      volume = {2023},
+      ISSN = {1475-7516},
+      url = {http://dx.doi.org/10.1088/1475-7516/2023/11/048},
+      DOI = {10.1088/1475-7516/2023/11/048},
+      number = {11},
+      journal = {Journal of Cosmology and Astroparticle Physics},
+      publisher = {IOP Publishing},
+      author = {Heavens, Alan F. and Mootoovaloo, Arrykrishna and Trotta, Roberto and Sellentin, Elena},
+      year = {2023},
+      month = Nov,
+      pages = {048}
+    }
+  year: 2023
+  abstract: |-
+    We develop extreme data compression for use in Bayesian model comparison via the MOPED algorithm, as well as more general score compression. We find that Bayes factors from data compressed with the MOPED algorithm are identical to those from their uncompressed datasets when the models are linear and the errors Gaussian. In other nonlinear cases, whether nested or not, we find negligible differences in the Bayes factors, and show this explicitly for the Pantheon-SH0ES supernova dataset. We also investigate the sampling properties of the Bayesian Evidence as a frequentist statistic, and find that extreme data compression reduces the sampling variance of the Evidence, but has no impact on the sampling distribution of Bayes factors. Since model comparison can be a very computationally-intensive task, MOPED extreme data compression may present significant advantages in computational time.
+
+- title: |-
+    Analytical marginalisation over photometric redshift uncertainties in cosmic shear analyses
+  authors: |-
+    Jaime Ruiz-Zapatero, Boryana Hadzhiyska, David Alonso, Pedro G. Ferreira, Carlos García-García, <strong class="me">Arrykrishna Mootoovaloo</strong>
+  venue: "MNRAS"
+  links:
+    - label: Journal
+      url: "https://academic.oup.com/mnras/article/522/4/5037/7136163?login=false"
+    - label: arXiv
+      url: "https://arxiv.org/abs/2301.11978"
+  bibtex: |-
+    @misc{ruizzapatero2023analyticalmarginalisationphotometricredshift,
+          title={Analytical marginalisation over photometric redshift uncertainties in cosmic shear analyses}, 
+          author={Jaime Ruiz-Zapatero and Boryana Hadzhiyska and David Alonso and Pedro G. Ferreira and Carlos García-García and Arrykrishna Mootoovaloo},
+          year={2023},
+          eprint={2301.11978},
+          archivePrefix={arXiv},
+          primaryClass={astro-ph.CO},
+          doi={https://doi.org/10.1093/mnras/stad1192},
+          url={https://arxiv.org/abs/2301.11978}, 
+    }
+  year: 2023
+  abstract: |-
+    As the statistical power of imaging surveys grows, it is crucial to account for all systematic uncertainties. This is normally done by constructing a model of these uncertainties and then marginalizing over the additional model parameters. The resulting high dimensionality of the total parameter spaces makes inferring the cosmological parameters significantly more costly using traditional Monte-Carlo sampling methods. A particularly relevant example is the redshift distribution, $p(z)$, of the source samples, which may require tens of parameters to describe fully. However, relatively tight priors can be usually placed on these parameters through calibration of the associated systematics. In this paper we show, quantitatively, that a linearisation of the theoretical prediction with respect to these calibratable systematic parameters allows us to analytically marginalise over these extra parameters, leading to a factor $\sim 30$ reduction in the time needed for parameter inference, while accurately recovering the same posterior distributions for the cosmological parameters that would be obtained through a full numerical marginalisation over $160\; p(z)$ parameters. We demonstrate that this is feasible not only with current data and current achievable calibration priors but also for future Stage-IV datasets.
+
+- title: |-
+    Fast Approximate Model for the 3D Matter Power Spectrum
+  authors: |-
+    <strong class="me">Arrykrishna Mootoovaloo</strong>, Andrew Jaffe, Alan Heavens, Florent Leclercq
+  venue: "NeurIPS 2021"
+  year: 2021
+  abstract: |-
+    Many Bayesian inference problems in cosmology involve complex models. Despite the fact that these models have been meticulously designed, they can lead to intractable likelihood and each forward simulation itself can be computationally expensive, thus making the inverse problem of learning the model parameters a challenging task. In this paper, we develop an approximate model for the 3D matter power spectrum, $P_{\delta}(k,z)$, which is a central quantity in a weak lensing analysis. An important output of this approximate model, often referred to as surrogate model or emulator, are the first and second derivatives with respect to the input cosmological parameters. Without the emulator, the calculation of the derivatives requires multiple calls of the simulator, that is, the accurate Boltzmann solver, CLASS. We illustrate the application of the emulator in the calculation of different weak lensing and intrinsic alignment power spectra and we also demonstrate its performance on a toy simulated weak lensing dataset.
+
+- title: |-
+    Kernel-Based Emulator for the 3D Matter Power Spectrum from CLASS
+  authors: |-
+    <strong class="me">Arrykrishna Mootoovaloo</strong>, Andrew Jaffe, Alan Heavens, Florent Leclercq
+  venue: "Astronomy and Computing"
+  links:
+    - label: Journal
+      url: "https://doi.org/10.1016/j.ascom.2021.100508"
+    - label: arXiv
+      url: "https://arxiv.org/abs/2105.02256"
+    - label: Code
+      url: "https://github.com/Harry45/emuPK"
+    - label: Docs
+      url: "https://emupk.readthedocs.io/"
+  bibtex: |-
+    @article{Mootoovaloo_2022,
+      title = {Kernel-based emulator for the 3D matter power spectrum from CLASS},
+      volume = {38},
+      ISSN = {2213-1337},
+      url = {http://dx.doi.org/10.1016/j.ascom.2021.100508},
+      DOI = {10.1016/j.ascom.2021.100508},
+      journal = {Astronomy and Computing},
+      publisher = {Elsevier BV},
+      author = {Mootoovaloo, A. and Jaffe, A.H. and Heavens, A.F. and Leclercq, F.},
+      year = {2022},
+      month = Jan,
+      pages = {100508}
+    }
+  selected: true
+  year: 2021
+  abstract: |-
+    The 3D matter power spectrum, $P_{\delta}(k,z)$ is a fundamental quantity in the analysis of cosmological data such as large-scale structure, 21cm observations, and weak lensing. Existing computer models (Boltzmann codes) such as CLASS can provide it at the expense of immoderate computational cost. In this paper, we propose a fast Bayesian method to generate the 3D matter power spectrum, for a given set of wavenumbers, $k$ and redshifts, $z$. Our code allows one to calculate the following quantities: the linear matter power spectrum at a given redshift (the default is set to 0); the non-linear 3D matter power spectrum with/without baryon feedback; the weak lensing power spectrum. The gradient of the 3D matter power spectrum with respect to the input cosmological parameters is also returned and this is useful for Hamiltonian Monte Carlo samplers. The derivatives are also useful for Fisher matrix calculations. In our application, the emulator is accurate when evaluated at a set of cosmological parameters, drawn from the prior, with the fractional uncertainty, $\Delta P_{\delta}/P_{\delta}$ centered on 0. It is also $\sim 300$ times faster compared to CLASS, hence making the emulator amenable to sampling cosmological and nuisance parameters in a Monte Carlo routine. In addition, once the 3D matter power spectrum is calculated, it can be used with a specific redshift distribution, $n(z)$ to calculate the weak lensing and intrinsic alignment power spectra, which can then be used to derive constraints on cosmological parameters in a weak lensing data analysis problem. The software ($\texttt{emuPK}$) can be trained with any set of points and is distributed on Github, and comes with a pre-trained set of Gaussian Process (GP) models, based on 1000 Latin Hypercube (LH) samples, which follow roughly the current priors for current weak lensing analyses.
+
+- title: |-
+    Data Augmentation in a Hierarchical-Based Classification scheme for Variable Stars
+  authors: |-
+    Zafiirah Hosenie, Robert Lyon, Benjamin Stappers, <strong class="me">Arrykrishna Mootoovaloo</strong>, Vanessa McBrides
+  venue: "NeurIPS 2020"
+  year: 2020
+  abstract: |-
+    The accurate automated classification of variable stars into their respective sub-types is difficult. Machine learning based solutions often fall foul of the imbalanced learning problem, which causes poor generalisation performance in practice, especially on rare variable star sub-types. We attempted to overcome such deficiencies via the development of a hierarchical machine learning classifier. This ‘algorithm-level’ approach to tackling imbalance, yielded promising results on Catalina Real-Time Survey (CRTS) data. We attempt to further improve hierarchical classification performance by applying ‘data-level’ approaches to directly augment the training data so that they better describe under-represented classes. We apply and report results for three data augmentation methods in particular: Randomly Augmented Sampled Light curves from magnitude Error (RASLE), augmenting light curves with Gaussian Process modelling (GpFit) and the Synthetic Minority Over-sampling Technique (SMOTE). When combining the ‘algorithm-level’ (i.e. the hierarchical scheme) together with the ‘data-level’ approach, we further improve variable star classification accuracy by 1-4%. We found that a higher classification rate is obtained when using GpFit in the hierarchical model.
+
+- title: |-
+    Parameter Inference for Weak Lensing using Gaussian Processes and MOPED
+  authors: |-
+    <strong class="me">Arrykrishna Mootoovaloo</strong>, Alan Heavens, Andrew Jaffe, Florent Leclercq
+  venue: "MNRAS"
+  links:
+    - label: Journal
+      url: "https://doi.org/10.1093/mnras/staa2102"
+    - label: arXiv
+      url: "https://arxiv.org/abs/2005.06551"
+    - label: Code
+      url: "https://github.com/Harry45/gp_emulator"
+  bibtex: |-
+    @article{Mootoovaloo_2020,
+      title = {Parameter inference for weak lensing using Gaussian Processes and MOPED},
+      volume = {497},
+      ISSN = {1365-2966},
+      url = {http://dx.doi.org/10.1093/mnras/staa2102},
+      DOI = {10.1093/mnras/staa2102},
+      number = {2},
+      journal = {Monthly Notices of the Royal Astronomical Society},
+      publisher = {Oxford University Press (OUP)},
+      author = {Mootoovaloo, Arrykrishna and Heavens, Alan F and Jaffe, Andrew H and Leclercq, Florent},
+      year = {2020},
+      month = July,
+      pages = {2213–2226}
+    }
+  year: 2020
+  abstract: |-
+    In this paper, we propose a Gaussian Process (GP) emulator for the calculation of a) tomographic weak lensing band-power spectra, and b) coefficients of summary data massively compressed with the MOPED algorithm.  In the former case cosmological parameter inference is accelerated by a factor of $\sim 10$-$30$ compared to explicit calls to the Boltzmann solver CLASS when applied to KiDS-450 weak lensing data.  Much larger gains will come with future data, where with MOPED compression, the speed up can be up to a factor of $\sim 10^3$ when the common Limber approximation is used. Furthermore, the GP opens up the possibility of dropping the Limber approximation, without which the theoretical calculations may be unfeasibly slow. A potential advantage of GPs is that an error on the emulated function can be computed and this uncertainty incorporated into the likelihood.  If speed is of the essence, then the mean of the Gaussian Process can be used and the uncertainty ignored. We compute the Kullback-Leibler divergence between the emulator likelihood and the CLASS likelihood, and on the basis of this and from analysing the uncertainties on the parameters, we find that in this case, the inclusion of the GP uncertainty does not justify the extra computational expense in the test application. For future weak lensing surveys such as Euclid and Legacy Survey of Space and Time (LSST), the number of summary statistics will be large, up to $\sim 10^{4}$.   The speed of MOPED is determined by the number of parameters, not the number of summary data, so the gains are very large.  In the non-Limber case, the speed-up can be a factor of $\sim 10^5$, provided that a fast way to compute the theoretical MOPED coefficients is available.  The GP presented here provides such a fast mechanism and enables MOPED to be employed.
+
+- title: |-
+    Gaussian Processes and MOPED Compression for Weak Lensing
+  authors: |-
+    <strong class="me">Arrykrishna Mootoovaloo</strong>, Alan Heavens, Andrew Jaffe, Florent Leclercq
+  venue: "ICLR 2020"
+  links:
+    - label: Workshop
+      url: "https://iclr2020-fsai.github.io/FSAI/"
+    - label: Video
+      url: "https://slideslive.com/38926202/gaussian-processes-emulator-and-moped-for-weak-lensing"
+    - label: PDF
+      url: "https://drive.google.com/file/d/1p9EY869IWnQhV2bAC9XQg1Q_HK_7z4VY/view"
+    - label: Code
+      url: "https://github.com/Harry45/gp_emulator"
+  year: 2020
+  abstract: |-
+    In this paper, we propose a Gaussian Process (GP) emulator for tomographic weak lensing band power spectra, which speeds up cosmological parameter inference by a factor of $\sim$ 12 − 30 when applied to the KiDS-450 data. The emulator is built upon 8 parameters (6 cosmological and 2 systematic) using 1000 Latin Hypercube training samples. Since the prediction from the emulator is Gaussian distributed, we can also include the theoretical uncertainty in the likelihood function using the predictive uncertainty to marginalise over the latent function. Including the GP uncertainty is more demanding since it requires an $\mathcal{O}(N^{2})$ operation, for train each band power at every step in the MCMC compared to $\mathcal{O}(N_{\textrm{train}})$ for the mean alone, where $N_{\textrm{train}}$ is the number of training points in the emulator. If we use the exact solver, that is CLASS, each likelihood computation takes ∼ 0.65 seconds while each likelihood evaluation with the mean and uncertainty of the GP is $\sim$ 0.03 and $\sim$ 0.09 seconds respectively. The algorithm can be sped further when using MOPED compression algorithm which eliminates the $\mathcal{O}(N^{3})$ cost in the likelihood evaluation, where $N$ is the number of data points. Finally, with the emulator, it is realistic to drop the Limber approximation and train on the very slow but accurate full integrals.
+
+- title: |-
+    Imbalance Learning for Variable Star Classification
+  authors: |-
+    Zafiirah Hosenie, Robert Lyon, Benjamin Stappers, <strong class="me">Arrykrishna Mootoovaloo</strong>, Vanessa McBride
+  venue: "MNRAS"
+  links:
+    - label: Journal
+      url: "https://doi.org/10.1093/mnras/staa642"
+    - label: arXiv
+      url: "https://arxiv.org/abs/2002.12386"
+    - label: Code
+      url: "https://github.com/Harry45/Imbalance-Learning-for-Variable-Star-Classification-using-Machine-Learning"
+  bibtex: |-
+    @article{Hosenie_2020,
+      title = {Imbalance learning for variable star classification},
+      volume = {493},
+      ISSN = {1365-2966},
+      url = {http://dx.doi.org/10.1093/mnras/staa642},
+      DOI = {10.1093/mnras/staa642},
+      number = {4},
+      journal = {Monthly Notices of the Royal Astronomical Society},
+      publisher = {Oxford University Press (OUP)},
+      author = {Hosenie, Zafiirah and Lyon, Robert and Stappers, Benjamin and Mootoovaloo, Arrykrishna and McBride, Vanessa},
+      year = {2020},
+      month = Mar,
+      pages = {6050–6059}
+    }
+  year: 2020
+  abstract: |-
+    The accurate automated classification of variable stars into their respective sub-types is difficult. Machine learning based solutions often fall foul of the imbalanced learning problem, which causes poor generalisation performance in practice, especially on rare variable star sub-types. In previous work, we attempted to overcome such deficiencies via the development of a hierarchical machine learning classifier. This 'algorithm-level' approach to tackling imbalance, yielded promising results on Catalina Real-Time Survey (CRTS) data, outperforming the binary and multi-class classification schemes previously applied in this area. In this work, we attempt to further improve hierarchical classification performance by applying 'data-level' approaches to directly augment the training data so that they better describe under-represented classes. We apply and report results for three data augmentation methods in particular: Randomly Augmented Sampled Light curves from magnitude Error (𝚁𝙰𝚂𝙻𝙴), augmenting light curves with Gaussian Process modelling (𝙶𝚙𝙵𝚒𝚝) and the Synthetic Minority Over-sampling Technique (𝚂𝙼𝙾𝚃𝙴). When combining the 'algorithm-level' (i.e. the hierarchical scheme) together with the 'data-level' approach, we further improve variable star classification accuracy by 1-4%. We found that a higher classification rate is obtained when using 𝙶𝚙𝙵𝚒𝚝 in the hierarchical model. Further improvement of the metric scores requires a better standard set of correctly identified variable stars and, perhaps enhanced features are needed.
+
+- title: |-
+    Comparing Multi-class, Binary and Hierarchical Machine Learning Classification schemes for variable stars
+  authors: |-
+    Zafiirah Hosenie, Robert Lyon, Benjamin Stappers, <strong class="me">Arrykrishna Mootoovaloo</strong>
+  venue: "MNRAS"
+  links:
+    - label: Journal
+      url: "https://doi.org/10.1093/mnras/stz1999"
+    - label: arXiv
+      url: "https://arxiv.org/abs/1907.08189"
+  bibtex: |-
+    @article{Hosenie_2019,
+      title = {Comparing Multiclass, Binary, and Hierarchical Machine Learning Classification schemes for variable stars},
+      volume = {488},
+      ISSN = {1365-2966},
+      url = {http://dx.doi.org/10.1093/mnras/stz1999},
+      DOI = {10.1093/mnras/stz1999},
+      number = {4},
+      journal = {Monthly Notices of the Royal Astronomical Society},
+      publisher = {Oxford University Press (OUP)},
+      author = {Hosenie, Zafiirah and Lyon, Robert J and Stappers, Benjamin W and Mootoovaloo, Arrykrishna},
+      year = {2019},
+      month = July,
+      pages = {4858–4872}
+    }
+  year: 2019
+  abstract: |-
+    Upcoming synoptic surveys are set to generate an unprecedented amount of data. This requires an automatic framework that can quickly and efficiently provide classification labels for several new object classification challenges. Using data describing 11 types of variable stars from the Catalina Real-Time Transient Surveys (CRTS), we illustrate how to capture the most important information from computed features and describe detailed methods of how to robustly use Information Theory for feature selection and evaluation. We apply three Machine Learning (ML) algorithms and demonstrate how to optimize these classifiers via cross-validation techniques. For the CRTS dataset, we find that the Random Forest (RF) classifier performs best in terms of balanced-accuracy and geometric means. We demonstrate substantially improved classification results by converting the multi-class problem into a binary classification task, achieving a balanced-accuracy rate of $\sim$99 per cent for the classification of $\delta$-Scuti and Anomalous Cepheids (ACEP). Additionally, we describe how classification performance can be improved via converting a 'flat-multi-class' problem into a hierarchical taxonomy. We develop a new hierarchical structure and propose a new set of classification features, enabling the accurate identification of subtypes of cepheids, RR Lyrae and eclipsing binary stars in CRTS data.
+
+- title: |-
+    Marginal Likelihoods from Monte Carlo Markov Chains
+  authors: |-
+    Alan Heavens, Yabebal Fantaye, <strong class="me">Arrykrishna Mootoovaloo</strong>, Hans Eggers, Zafiirah Hosenie, Steve Kroon, Elena Sellentin
+  venue: "Preprint"
+  links:
+    - label: arXiv
+      url: "https://arxiv.org/abs/1704.03472"
+    - label: Code
+      url: "https://github.com/Harry45/MCEvidence"
+  bibtex: |-
+    @misc{heavens2017marginallikelihoodsmontecarlo,
+          title={Marginal Likelihoods from Monte Carlo Markov Chains}, 
+          author={Alan Heavens and Yabebal Fantaye and Arrykrishna Mootoovaloo and Hans Eggers and Zafiirah Hosenie and Steve Kroon and Elena Sellentin},
+          year={2017},
+          eprint={1704.03472},
+          archivePrefix={arXiv},
+          primaryClass={stat.CO},
+          url={https://arxiv.org/abs/1704.03472}, 
+    }
+  year: 2017
+  abstract: |-
+    In this paper, we present a method for computing the marginal likelihood, also known as the model likelihood or Bayesian evidence, from Markov Chain Monte Carlo (MCMC), or other sampled posterior distributions. In order to do this, one needs to be able to estimate the density of points in parameter space, and this can be challenging in high numbers of dimensions. Here we present a Bayesian analysis, where we obtain the posterior for the marginal likelihood, using kth nearest-neighbour distances in parameter space, using the Mahalanobis distance metric, under the assumption that the points in the chain (thinned if required) are independent. We generalise the algorithm to apply to importance-sampled chains, where each point is assigned a weight. We illustrate this with an idealised posterior of known form with an analytic marginal likelihood, and show that for chains of length $∼10^{5}$ points, the technique is effective for parameter spaces with up to ∼20 dimensions. We also argue that $k=1$ is the optimal choice, and discuss failure modes for the algorithm. In a companion paper (<a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.101301">Heavens et al. 2017</a>) we apply the technique to the main MCMC chains from the 2015 Planck analysis of cosmic background radiation data, to infer that quantitatively the simplest 6-parameter flat $\Lambda$CDM standard model of cosmology is preferred over all extensions considered.
+
+- title: |-
+    No evidence for extensions to the standard cosmological model
+  authors: |-
+    Alan Heavens, Yabebal Fantaye, Elena Sellentin, Hans Eggers, Zafiirah Hosenie, Steve Kroon, <strong class="me">Arrykrishna Mootoovaloo</strong>
+  venue: "Physical Review Letters"
+  links:
+    - label: Journal
+      url: "https://doi.org/10.1103/PhysRevLett.119.101301"
+    - label: arXiv
+      url: "https://arxiv.org/abs/1704.03467"
+    - label: Code
+      url: "https://github.com/Harry45/MCEvidence"
+  bibtex: |-
+    @article{Heavens_2017,
+      title = {No Evidence for Extensions to the Standard Cosmological Model},
+      volume = {119},
+      ISSN = {1079-7114},
+      url = {http://dx.doi.org/10.1103/PhysRevLett.119.101301},
+      DOI = {10.1103/physrevlett.119.101301},
+      number = {10},
+      journal = {Physical Review Letters},
+      publisher = {American Physical Society (APS)},
+      author = {Heavens, Alan and Fantaye, Yabebal and Sellentin, Elena and Eggers, Hans and Hosenie, Zafiirah and Kroon, Steve and Mootoovaloo, Arrykrishna},
+      year = {2017},
+      month = Sept
+    }
+  year: 2017
+  abstract: |-
+    We compute the Bayesian Evidence for models considered in the main analysis of Planck cosmic microwave background data. By utilising carefully-defined nearest-neighbour distances in parameter space, we reuse the Monte Carlo Markov Chains already produced for parameter inference to compute Bayes factors $B$ for many different model-dataset combinations. Standard 6-parameter flat $\Lambda$CDM model is favoured over all other models considered, with curvature being mildly favoured only when CMB lensing is not included. Many alternative models are strongly disfavoured by the data, including primordial correlated isocurvature models (ln$B$=−7.8), non-zero scalar-to-tensor ratio (ln$B$=−4.3), running of the spectral index (ln$B$=−4.7), curvature (ln$B$=−3.6), non-standard numbers of neutrinos (ln$B$=−3.1), non-standard neutrino masses (ln$B$=−3.2), non-standard lensing potential (ln$B$=−4.6), evolving dark energy (ln$B$=−3.2), sterile neutrinos (ln$B$=−6.9), and extra sterile neutrinos with a non-zero scalar-to-tensor ratio (ln$B$=−10.8). Other models are less strongly disfavoured with respect to flat $\Lambda$CDM. As with all analyses based on Bayesian Evidence, the final numbers depend on the widths of the parameter priors. We adopt the priors used in the Planck analysis, while performing a prior sensitivity analysis. Our quantitative conclusion is that extensions beyond the standard cosmological model are disfavoured by Planck data. Only when newer Hubble constant measurements are included does ΛCDM become disfavoured, and only mildly, compared with a dynamical dark energy model (ln$B\sim$+2).
+
+- title: |-
+    Bayes Factors via Savage-Dickey Supermodels
+  authors: |-
+    <strong class="me">Arrykrishna Mootoovaloo</strong>, Bruce A. Bassett, Martin Kunz
+  venue: "Preprint"
+  links:
+    - label: arXiv
+      url: "https://arxiv.org/abs/1609.02186"
+  bibtex: |-
+    @misc{mootoovaloo2016bayesfactorssavagedickeysupermodels,
+          title={Bayes Factors via Savage-Dickey Supermodels}, 
+          author={A. Mootoovaloo and Bruce A. Bassett and M. Kunz},
+          year={2016},
+          eprint={1609.02186},
+          archivePrefix={arXiv},
+          primaryClass={astro-ph.IM},
+          url={https://arxiv.org/abs/1609.02186}, 
+    }
+  year: 2016
+  abstract: |-
+    We outline a new method to compute the Bayes Factor for model selection which bypasses the Bayesian Evidence. Our method combines multiple models into a single, nested, Supermodel using one or more hyperparameters. Since the models are now nested the Bayes Factors between the models can be efficiently computed using the Savage-Dickey Density Ratio (SDDR). In this way model selection becomes a problem of parameter estimation. We consider two ways of constructing the supermodel in detail: one based on combined models, and a second based on combined likelihoods. We report on these two approaches for a Gaussian linear model for which the Bayesian evidence can be calculated analytically and a toy nonlinear problem. Unlike the combined model approach, where a standard Monte Carlo Markov Chain (MCMC) struggles, the combined-likelihood approach fares much better in providing a reliable estimate of the log-Bayes Factor. This scheme potentially opens the way to computationally efficient ways to compute Bayes Factors in high dimensions that exploit the good scaling properties of MCMC, as compared to methods such as nested sampling that fail for high dimensions.

@@ -1,23 +1,35 @@
 # Site settings
 title: Arrykrishna Mootoovaloo
 email: arrykrish@gmail.com
-description: "London, United Kingdom"
+tagline: "Researcher"
+description: "Arrykrishna Mootoovaloo is a researcher in London, with a background in probabilistic machine learning and Bayesian inference from the University of Oxford."
+location: "London, United Kingdom"
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://Harry45.github.io" # the base hostname & protocol for your site
-twitter_username: arrykrishna
+url: "https://harry45.github.io" # the base hostname & protocol for your site
 github_username:  Harry45
-facebook_username: Arrykrishna
 linkedin_username: arrykrishna
+orcid: "0000-0003-2259-4519"
+# Paste your Google Scholar profile URL here to show a Scholar icon, e.g.
+# google_scholar: "https://scholar.google.com/citations?user=XXXXXXXXXXXX"
+google_scholar: "https://scholar.google.com/citations?user=UQ0U8SQAAAAJ&hl=en"
 # Build settings
 
 markdown: kramdown
 
 # Other options
 permalink: blog/:year/:month/:title
-job.title: "Research Fellow"
+job.title: "Researcher"
 excerpt_separator: "<!--more-->"
 
 # SEO stuff
 # google_author: ""
 # google_site_verification: ""
 # bing_webmastertools_id: ""
+# Not part of the published site
+exclude:
+  - old/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/

@@ -1,0 +1,7 @@
+<ul class="social">
+  {% if site.email %}<li><a href="mailto:{{ site.email }}" aria-label="Email" title="Email">{% include icon.html name="email" %}</a></li>{% endif %}
+  {% if site.linkedin_username %}<li><a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" aria-label="LinkedIn" title="LinkedIn">{% include icon.html name="linkedin" %}</a></li>{% endif %}
+  {% if site.github_username %}<li><a href="https://github.com/{{ site.github_username }}" aria-label="GitHub" title="GitHub">{% include icon.html name="github" %}</a></li>{% endif %}
+  {% if site.google_scholar and site.google_scholar != "" %}<li><a href="{{ site.google_scholar }}" aria-label="Google Scholar" title="Google Scholar">{% include icon.html name="scholar" %}</a></li>{% endif %}
+  {% if site.orcid %}<li><a href="https://orcid.org/{{ site.orcid }}" aria-label="ORCID" title="ORCID">{% include icon.html name="orcid" %}</a></li>{% endif %}
+</ul>

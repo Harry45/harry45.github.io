@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "Sampling From Any Distribution"
+title:  "Sampling from Any Distribution"
 date:   2016-10-28 08:26:00
 author: A.Mootoovaloo
 permalink:
@@ -11,19 +11,20 @@ tags:
   - 
   -
 excerpt:
+description: "Three ways to sample any distribution, from SciPy to interpolation."
 ---
 
-<p align="justify">One of the recent topics which I had to study was how to sample from any distribution. While this seems to be a trivial question, Google did not help me much, although I did also try to post the problem on <a href="http://stackoverflow.com/questions/40263486/drawing-random-samples-from-any-distribution">stackoverflow</a>! Here, we will show three methods which we can use to generate random numbers from a distribution. In particular, we will look at some in-built functions in <code>scipy</code>, acceptance-rejection sampling and will consider interpolation method as well. The distribution which we will use is given by </p>
+<p align="justify">I recently needed to work out how to sample from an arbitrary distribution. Although this may seem a trivial question, a web search did not help much, and I also posted the problem on <a href="http://stackoverflow.com/questions/40263486/drawing-random-samples-from-any-distribution">Stack Overflow</a>. Here, we present three methods for generating random numbers from a distribution: built-in functions in <code>scipy</code>, acceptance-rejection sampling, and an interpolation method. The distribution we use is</p>
 
 \begin{align}
 \mathcal{P}\left(x\right) = \dfrac{k\,x^3}{e^{2x} - 0.1}
 \end{align}
 
-<p align="justify">where $k$ is the normalisation constant. Note that we will use the following notations: $\mathcal{P}\left(\centerdot\right)$ is the probability distribution function (PDF) while $\Phi\left(\centerdot\right)$ is the cumulative distribution function (CDF). The generic shape of this distribution follows that of a black body spectrum. This distribution is used only to illustrate the idea of sampling and we do not provide any relevant explanation to the actual physics of black body radiation in this post.</p>
+<p align="justify">where $k$ is the normalisation constant. We use the following notation: $\mathcal{P}\left(\centerdot\right)$ is the probability density function (PDF) and $\Phi\left(\centerdot\right)$ is the cumulative distribution function (CDF). The shape of this distribution resembles that of a black-body spectrum. It is used here purely to illustrate sampling; we do not discuss the physics of black-body radiation in this post.</p>
 
 <h2>Using Scipy</h2>
 
-<p align="justify">The class <code>rv_continuous</code> in <code>scipy.stats</code> is straightforward to use. We simply need to define either the PDF or CDF using <code>_pdf</code> and <code>_cdf</code> respectively as shown below. We first define the PDF, followed by a function to normalise it. Note also that the PDF that we define in the class should be normalised.</p>
+<p align="justify">The class <code>rv_continuous</code> in <code>scipy.stats</code> is straightforward to use. We simply define either the PDF or the CDF, using <code>_pdf</code> or <code>_cdf</code> respectively, as shown below. We first define the PDF and then a function to normalise it; note that the PDF defined in the class must be normalised.</p>
 
 {% highlight python %}
 x = np.linspace(0.0, 10.0, 1E4)
@@ -41,7 +42,7 @@ class blackbody(ss.rv_continuous):
         return (1.0/const) * p(x)
 {% endhighlight %}
 
-<p align="justify">We are now ready to use our above written functions to find $\mathcal{P}\left(x\right)$, $\Phi\left(x\right)$ and generate samples from the underlying distribution. We first need to instantiate it with the lower and upper limits given by <code>a</code> and <code>b</code> respectively. In principle, if not defined, it will be considered to be from $-\infty$ to $+\infty$.</p>
+<p align="justify">We can now use these functions to compute $\mathcal{P}\left(x\right)$, $\Phi\left(x\right)$ and to generate samples from the underlying distribution. We first instantiate the distribution with lower and upper limits given by <code>a</code> and <code>b</code>, respectively. If these are not specified, the support defaults to $-\infty$ to $+\infty$.</p>
 
 {% highlight python %}
 
@@ -59,24 +60,24 @@ samples = blackbody_distribution.rvs(const = norm_constant, size = 1E4)
 
 {% include image.html url="/images/scipy_continuous.jpg" caption="Samples generated using <code>rv_continuous</code> from <code>scipy.stats</code>" width=700 align="center" %}
 
-<p align="justify">The above plot shows the PDF, CDF and the samples generated from the distribution. In particular, we choose to draw 10 000 random samples. <code>rv_continuous</code> becomes useful when one needs more than just the samples. Once we have defined it, we can simply find other properties such as its mean, standard deviation and several more (see the <a href="https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.stats.rv_continuous.html">documentation</a> for further details).</p>
+<p align="justify">The plot above shows the PDF, the CDF and 10 000 random samples drawn from the distribution. <code>rv_continuous</code> is particularly useful when more than just samples are needed: once it is defined, other properties such as the mean and standard deviation are readily available (see the <a href="https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.stats.rv_continuous.html">documentation</a> for further details).</p>
 
 <h2>Acceptance-Rejection Sampling</h2>
 
 {% include image.html url="/images/circle_accept_reject.jpg" caption="Estimating value of $\pi$ using Monte Carlo Method" width=265 align="right" %}
 
-<p align="justify">Imagine we have a square board of size $l$, on which there is a circle of radius $0.5l$ at the centre of the board, that is, at $\left(0.5l,0.5l\right)$ in a Cartesian coordinate system. We are throwing darts randomly on the board, say $N$ times. If $n$ is the number of times that the darts lie within the circle, the probability of throwing the darts successfully into the circle is simply $\frac{n}{N}$. This is also roughly equal to the ratio of the area of the circle to the area of the square board. One could use this idea to have a rough estimate of the value of $\pi$, that is,</p>
+<p align="justify">Imagine a square board of side $l$, with a circle of radius $0.5l$ at its centre, that is, at $\left(0.5l,0.5l\right)$ in Cartesian coordinates. Suppose we throw darts randomly at the board $N$ times. If $n$ darts land inside the circle, the probability of hitting the circle is simply $\frac{n}{N}$, which is approximately the ratio of the area of the circle to that of the board. This idea gives a rough estimate of $\pi$:</p>
 \begin{align}
 \pi \approx 4 \times \frac{n}{N}
 \end{align} 
 
-<p align="justify">As $N$ becomes larger, one would have a more accurate estimate of the number $\pi$. This is the idea behind Monte Carlo sampling. Through this lens, an alternative way to sample from a normalised distribution is to use acceptance-rejection sampling scheme. It is also sometimes referred to as Lahiri's Sampling method. This method is advantageous in the sense that we do not need to know the CDF. However, one downfall is that samples may get rejected very often. Moreover, say we want $N$ random numbers, it is unlikely that we will get that number of samples relatively easily. In this post, we have not implemented this method. In short,</p>
+<p align="justify">As $N$ increases, the estimate of $\pi$ becomes more accurate. This is the idea behind Monte Carlo sampling. In the same spirit, another way to sample from a normalised distribution is acceptance-rejection sampling, sometimes called Lahiri's sampling method. Its advantage is that the CDF is not needed. One drawback, however, is that samples may be rejected very often, so obtaining a desired number $N$ of random numbers can take a long time. We have not implemented this method in this post. In short,</p>
 
 <p align="justify" style="padding: 0px 100px 0px 100px" > suppose $X$ is a scalar random variable taking values in the interval $\left[a, b\right]$ according to the continuous probability density function $f\left(x\right)$. Let $M$ be an upper bound for $f$ on $\left[a, b\right]$, $M$ assumed finite. Choose $x$ uniformly in $\left[a, b\right]$. Then choose $u$ uniformly in $\left[0, M\right]$. If $u\leq f\left(x\right)$, we select $x$. Otherwise we reject $x$ and start over.</p>
 
 
 <h2>Interpolation Method</h2>
-<p align="justify">What do we do if neither of the two methods work but we do have the PDF? The procedures we adopt here is as follows:</p>
+<p align="justify">What if neither of these methods works, but we do have the PDF? In that case, we proceed as follows:</p>
 
 <ol type="1">
   <li>Find the CDF using <code>np.cumsum</code></li>
@@ -101,4 +102,4 @@ own_samples = genSamples(1E4)
 
 {% include image.html url="/images/own_cdf_pdf_samples.jpg" caption="Samples generated using the CDF and interpolation method" width=700 align="center" %}
 
-<p align="justify">Here we have a nice distribution with 10 000 random samples drawn using the CDF. It looks similar to the one using <code>rv_continuous</code>!</p>
+<p align="justify">This gives 10 000 random samples drawn using the CDF, and the result closely matches the one obtained with <code>rv_continuous</code>.</p>

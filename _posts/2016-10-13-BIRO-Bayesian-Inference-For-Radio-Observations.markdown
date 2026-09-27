@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "BIRO - Bayesian Inference for Radio Observations"
+title:  "BIRO: Bayesian Inference for Radio Observations"
 date:   2016-10-13 07:00:00
 author: A.Mootoovaloo
 permalink:
@@ -11,19 +11,19 @@ tags:
   - 
   -
 excerpt:
----
-<style>
+extra_css: |
   .bottom-three {
-     margin-bottom: 0.5cm;
+  margin-bottom: 0.5cm;
   }
-</style>
+description: "Doing science directly on radio visibilities with Bayesian inference."
+---
 
 
 {% include image.html url="/images/superJEDI.jpg" caption="superJEDI in 2013 at Flic En Flac" width=420 align="right" %}
 
-<p align="justify">The superJEDI was organised in 2013, at Flic En Flac in Mauritius. I was not part of this wonderful event as I was still in my second year of my undergraduate study. However, Sheean and Suraj, who will later become my friends, were part of this amazing JEDI. The interesting fact about JEDI is that it is only in these kinds of meeting that we will come up with brilliant ideas, which can then lead to publications. For me personally, the major reason behind is the active participation of all people, being from undergraduate level to the highest position in the hierarchy.</p>
+<p align="justify">The superJEDI was held in 2013 at Flic en Flac, Mauritius. I did not attend, as I was then in the second year of my undergraduate studies; however, Sheean and Suraj, who later became my friends, took part. What makes JEDIs distinctive is that they are exactly the kind of meeting where brilliant ideas emerge and go on to become publications. In my view, the main reason is the active participation of everyone involved, from undergraduates to the most senior researchers.</p>
 
-<p align="justify">During one of those days, as Nadeem and Bruce were walking on the seaside, Bruce proposed the idea of having a Bayesian formalism in the context of radio interferometry. This led to the so-called BIRO (Bayesian Inference for Radio Obervation) project.</p>
+<p align="justify">One day during the event, while Nadeem and Bruce were walking along the seaside, Bruce proposed developing a Bayesian formalism for radio interferometry. This led to the BIRO (Bayesian Inference for Radio Observations) project.</p>
 
 
 <div style="text-align: center;">
@@ -32,11 +32,11 @@ excerpt:
 
 <p class="bottom-three">
 
-<p align="justify">The aim of this project was to determine the scientific parameters, if possible, the systematic parameters also, using the visibility data directly. The conventional way of doing this is to first produce a radio image, from which all science will be done. This seems absurb, isn't it? Why do we have to produce an image when we have the raw data? To some extent, one might argue that the data is dominated by noise and hence it will be hard to work in the Fourier space, that is, with the visibility data. This clearly suggests that the best alternative is to have a full distribution of the parameters of interest, with a summary statistics.</p>
+<p align="justify">The aim of the project was to infer the scientific parameters, and where possible the systematic parameters, directly from the visibility data. Conventionally, a radio image is produced first, and all subsequent science is done on that image. This seems counter-intuitive: why produce an image when we have the raw data? One might argue that the data are dominated by noise, making it difficult to work in Fourier space, that is, with the visibilities directly. This is precisely why the best alternative is to obtain the full distribution of the parameters of interest, along with summary statistics.</p>
 
-<p align="justify">Michelle, who was doing her PhD with Bruce at that time, took hold of the BIRO project. She started working on it as part of her PhD. Iniyan was also part of the BIRO project. While Michelle worked mostly on Bayesian Parameter Estimation, Iniyan's work was on Bayesian Model Selection. In a nutshell, Michelle was able to infer not only the scientific parameters but also the systematic parameters in a fully Bayesian formalism. She used MCMC (Markov Chain Monte Carlo) methods to map the full posterior distributions of the parameters. On the other hand, Iniyan used <a href="http://johannesbuchner.github.io/PyMultiNest/"> PyMultinest</a> to calculate the Bayesian Evidence (the quantity which tells us how one model is favoured over another). PyMultinest also returns the posterior distributions of the parameters. An illustration from the work done by Michelle and Iniyan is shown in the above video. Compared to <a href="http://cdsads.u-strasbg.fr/abs/1974A%26AS...15..417H">CLEAN</a>, BIRO is much better in terms of performance.</p>
+<p align="justify">Michelle, then a PhD student with Bruce, took on the BIRO project as part of her doctoral research, and Iniyan also joined the project. Michelle focused mainly on Bayesian parameter estimation, while Iniyan worked on Bayesian model selection. Michelle was able to infer both the scientific and the systematic parameters within a fully Bayesian framework, using MCMC (Markov Chain Monte Carlo) methods to map the full posterior distributions of the parameters. Iniyan used <a href="http://johannesbuchner.github.io/PyMultiNest/"> PyMultinest</a> to compute the Bayesian evidence, the quantity that tells us how strongly one model is favoured over another; PyMultinest also returns the posterior distributions of the parameters. The video above illustrates their work. Compared with <a href="http://cdsads.u-strasbg.fr/abs/1974A%26AS...15..417H">CLEAN</a>, BIRO performs considerably better.</p>
 
 
-<p align="justify">Of course, the technique is not without problems. One arguement is that we have to know the sky model first, before proceeding with Bayesian Inference. Therefore, in BIRO projects, we would normally assume a known sky model, which then leads to the second assumption that the positions of the sources are known. Moreover, nested sampling is known to have unreliable performance for higher dimensions. However, the fruitful side of this fantastic idea by Bruce has led to the following publications: <a href="https://arxiv.org/abs/1501.05304">BIRO</a>, <a href="https://arxiv.org/abs/1501.07719">MontBlanc</a> and <a href="https://arxiv.org/abs/1610.03773">Resolving the blazar CGRaBS J0809+5341</a>. We are currently extending the BIRO formalism to various other topics in radio astronomy.</p>
+<p align="justify">The technique is, of course, not without limitations. One is that the sky model must be known before Bayesian inference can proceed. BIRO projects therefore typically assume a known sky model, which in turn implies a second assumption: that the source positions are known. In addition, nested sampling is known to perform unreliably in high dimensions. Nevertheless, Bruce's idea has proved highly fruitful, leading to the following publications: <a href="https://arxiv.org/abs/1501.05304">BIRO</a>, <a href="https://arxiv.org/abs/1501.07719">MontBlanc</a> and <a href="https://arxiv.org/abs/1610.03773">Resolving the blazar CGRaBS J0809+5341</a>. We are currently extending the BIRO formalism to various other topics in radio astronomy.</p>
 
 </p>

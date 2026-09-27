@@ -1,66 +1,109 @@
 ---
 layout: page
-title:
+title: About
 permalink: /about/
 ---
 
-<style>
-blockquote {
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 100px;
-    margin-right: 0px;
-}
-</style>
-
-{% include image.html url="/images/Harry_Lindau.jpg" caption="Lindau Nobel Laureate Meeting (2016)" width=400 align="right" %}
+<img class="about-photo" src="/images/harry-headshot.jpg" alt="Arrykrishna Mootoovaloo" width="280" height="280">
 
 <!-- {% include image.html url="/images/A_Mootoovaloo.jpg" caption="" width=400 align="right" %} -->
 
 <!-- <img src="/images/A_Mootoovaloo.jpg" align="right" width = "400" style = "margin-left: 10px; margin-bottom: 10px"/> -->
 
-<p align="justify"> Research fellow at the University of Oxford. Arrykrishna did his PhD at Imperial College London, where he was working in Statistical Machine Learning. During his PhD, his research was based on building emulators using <b>Gaussian Processes</b> for accelerating computations in Cosmology. He is also keen to address global challenges in sustainability using Machine Learning.</p>
+<p align="justify">Arrykrishna Mootoovaloo is a researcher in London who designs statistical and machine learning models that turn complex data into reliable decisions. Before moving into industry, he was a Research Fellow at the University of Oxford, developing deep learning and probabilistic models to accelerate scientific computation. He completed his PhD at Imperial College London, specialising in statistical machine learning, where his research focused on building <b>Gaussian Process</b> emulators to accelerate computationally expensive calculations in cosmology. He is also interested in applying machine learning to global challenges in sustainability.</p>
 
-<p align="justify">He has an avid passion for technology and zealous to learn new tools. Since his background is in Physics, he is passionate about solving problems in a meticulous and principled way, which will benefit the community at large. In the same spirit, Mathematics, the universal and common language amongst scientists and engineers, allows him to develop a deep understanding of the topics he is interested in. When he is not doing research, he enjoys reading and watching soccer.</p>
+<p align="justify">He has a strong interest in technology and enjoys learning new tools. His background in physics has shaped a rigorous, principled approach to problem-solving, with the aim of producing work that benefits the wider community. Mathematics, the common language of scientists and engineers, underpins his effort to develop a deep understanding of the problems he works on. Outside research, he enjoys reading and watching football.</p>
 
-<blockquote>
+<blockquote class="about-quote">
 <p align="justify"><i>"You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future."</i> - Steve Jobs</p>
 </blockquote>
 
-<p><b><font size="6">Academic Background</font></b></p>
+<h2>Professional Experience</h2>
 
-<p><b>2017 - 2021: PhD in Physics (Imperial College London)</b></p>
-<p align="justify"> He did his PhD at the Imperial Centre for Inference and Cosmology, <a href="https://www.imperial.ac.uk/astrophysics/centre-for-inference-and-cosmology/">ICIC</a>, working with Prof. Alan Heavens, Prof. Andrew Jaffe and Dr. Florent Leclercq on weak lensing, data compression and Gaussian Processes.</p>
+<div class="role">
+<h3>Quantitative Researcher · <a href="https://www.fuseenergy.com/">Fuse Energy</a></h3>
+<p class="role__meta">Nov 2025 – present · London</p>
+<ul>
+  <li>Build commodity hedging models, validated with a robust backtesting framework.</li>
+</ul>
+</div>
 
-<p><b>2015 - 2016: MSc in Astrophysics and Space Science (University of Cape Town)</b></p>
-<p align="justify"> Prior to joining Imperial College, he did a Masters in Astrophysics and Space Science at the <a href="https://www.uct.ac.za/">University of Cape Town</a>. In 2015, after completing the coursework component of <a href="https://www.star.ac.za/">NASSP</a> (National Astrophysics and Space Science Programme), he did the research part (which was based on radio astronomy and Bayesian Statistics) at <a href="https://www.aims.ac.za/">AIMS</a> under the supervision of Prof. Bruce Bassett and Prof. Martin Kunz.</p>
+<div class="role">
+<h3>Quantitative Researcher (Intern) · <a href="https://www.qube-rt.com/">Qube Research &amp; Technologies</a></h3>
+<p class="role__meta">May 2025 – Oct 2025 · London</p>
+<ul>
+  <li>Built a deep learning pipeline for hidden-signal detection with turnover control.</li>
+</ul>
+</div>
 
-<p><b>2011 - 2014: BSc (Hons) Physics with Computing (University of Mauritius)</b></p>
-<p align="justify"> From 2011 to 2014, he did his undergraduate study in Physics with Computing at the University of Mauritius where he worked on the analysis of X-ray cavities (see <a href="https://harry45.github.io/blog/2016/10/A-Brief-Overview-Of-My-Undergraduate-Project">here</a>) with Dr. Somanah and Dr. Oozeer.</p>
+<div class="role">
+<h3>Research Fellow · <a href="https://www.ox.ac.uk/">University of Oxford</a></h3>
+<p class="role__meta">Dec 2021 – Apr 2025 · Oxford</p>
+<ul>
+  <li>Developed probabilistic ML for fast inference and supervised 4 summer interns.</li>
+</ul>
+</div>
 
-<p><b><font size="6">Professional Experience</font></b></p>
+<div class="role">
+<h3>Research Scientist (Intern) · <a href="https://www.huawei.com/uk/">Huawei Research &amp; Development</a></h3>
+<p class="role__meta">Oct 2022 – Apr 2023 · London</p>
+<ul>
+  <li>Researched interactive AI and built an API for diffusion-based image editing.</li>
+</ul>
+</div>
 
-<p><b>Research fellow (<a href="https://www.ox.ac.uk/">University of Oxford</a>)</b></p>
-<p align="justify">His work is related to developing computational methods which will accelerate Bayesian Inference for current and future cosmological surveys. Moreover, he is also working on probabilistic techniques to infer redshift distributions of galaxies for weak lensing surveys.</p>
+<div class="role">
+<h3>Postdoctoral Researcher · <a href="https://www.ox.ac.uk/">University of Oxford</a></h3>
+<p class="role__meta">Dec 2021 – Aug 2022 · Oxford</p>
+<ul>
+  <li>Applied machine learning to find unusual astronomical objects.</li>
+</ul>
+</div>
 
-<p><b>Postdoc Researcher (<a href="https://www.ox.ac.uk/">University of Oxford</a>)</b></p>
-<p align="justify">His research is focused on using Machine Learning techniques for finding unusual objects in the universe.</p>
+<div class="role">
+<h3>Data Scientist · <a href="https://metrixs.net/">Metrixs</a></h3>
+<p class="role__meta">Oct 2021 – Jul 2022 · London</p>
+<ul>
+  <li>Built machine learning models for consumer and psychometric data.</li>
+</ul>
+</div>
 
-<p><b>Data Scientist (<a href="https://metrixs.net/">Metrixs</a>)</b></p>
-<p align="justify">His work at Metrixs focused on developing Machine Learning algorithms for analysing consumers' data. In parallel, he also worked on testing and verifying an analytical model for investigating psychometric data.</p>
+<div class="role">
+<h3>Data Scientist · <a href="https://www.arcturus.io/">Arcturus</a></h3>
+<p class="role__meta">Jul 2019 – Aug 2020 · London</p>
+<ul>
+  <li>Built a company-rating methodology, plus NLP and geospatial data tools.</li>
+</ul>
+</div>
 
-<!-- <p><b>Consultant - Data Science (<a href="https://www.voxcroft.com/">Voxcroft Analytics</a>)</b></p>
+<h2>Education</h2>
+
+<div class="role">
+<h3>PhD in Physics · Imperial College London</h3>
+<p class="role__meta">2017 – 2021</p>
+<p align="justify">He completed his PhD at the Imperial Centre for Inference and Cosmology (<a href="https://www.imperial.ac.uk/astrophysics/centre-for-inference-and-cosmology/">ICIC</a>) under the supervision of Prof. Alan Heavens, Prof. Andrew Jaffe and Dr. Florent Leclercq. His doctoral research covered weak lensing, data compression and Gaussian Processes.</p>
+</div>
+
+<div class="role">
+<h3>MSc in Astrophysics and Space Science · University of Cape Town</h3>
+<p class="role__meta">2015 – 2016</p>
+<p align="justify">Before joining Imperial College, he completed an MSc in Astrophysics and Space Science at the <a href="https://www.uct.ac.za/">University of Cape Town</a> through the National Astrophysics and Space Science Programme (<a href="https://www.star.ac.za/">NASSP</a>). After completing the coursework component in 2015, he carried out his research project, on radio astronomy and Bayesian statistics, at <a href="https://www.aims.ac.za/">AIMS</a> under the supervision of Prof. Bruce Bassett and Prof. Martin Kunz.</p>
+</div>
+
+<div class="role">
+<h3>BSc (Hons) Physics with Computing · University of Mauritius</h3>
+<p class="role__meta">2011 – 2014</p>
+<p align="justify">He read Physics with Computing at the University of Mauritius, where his final-year project, supervised by Dr. Somanah and Dr. Oozeer, focused on the analysis of X-ray cavities (<a href="/blog/2016/10/A-Brief-Overview-Of-My-Undergraduate-Project">project overview</a>).</p>
+</div>
+
+<!-- <h3>Consultant - Data Science (<a href="https://www.voxcroft.com/">Voxcroft Analytics</a>)</h3>
 <p align="justify">At Voxcroft, he was involved in two projects related to Natural Language Processing. The first project involved the analysis of Twitter data while the second project was on speech-to-text analysis.</p> -->
-
-<p><b>Data Scientist (<a href="https://www.arcturus.io/">Arcturus</a>)</b></p>
-<p align="justify">His work was primarily focused on developing a methodology for rating companies. He also had the opportunity to work on a diverse set of problems including the development of a dynamic model, name-matching algorithm, web scraping, Natural Language Processing and geospatial data analysis using Computer Vision.</p>
 <!--
-<p><b>Lead Data Scientist (<a href="https://vensy.co.uk/">Vensy</a>)</b></p>
+<h3>Lead Data Scientist (<a href="https://vensy.co.uk/">Vensy</a>)</h3>
 <p align="justify">Much of his work at Vensy was to investigate a Twitter database in order to understand the engagement rate of atheletes, which eventually helps in driving the business forward.</p>
 
-<p><b>Data Scientist (<a href="https://gimmer.com/">Gimmer</a>)</b></p>
+<h3>Data Scientist (<a href="https://gimmer.com/">Gimmer</a>)</h3>
 <p align="justify">Part of the RnD team, working on predictive analysis and statistics, to build both data pipelines and machine learning algorithms to produce insightful metrics while designing ways to integrate these algorithms as tools within an automated crypto-trading platform.</p>
 
-<p><b>Private Tutor (Mauritius)</b></p>
+<h3>Private Tutor (Mauritius)</h3>
 <p align="justify">Taught Mathematics, Physics, Additional Mathematics and Further Mathematics to more than 150 O-Level and A-Level students in Mauritius over a course of 4 years (2011 to 2014).</p> -->

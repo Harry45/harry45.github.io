@@ -1,43 +1,15 @@
 ---
 layout: default
 ---
-<div class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
+<div class="container container--prose">
+  {% if page.title %}
+  <header class="page-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.lead %}<p class="page-lead">{{ page.lead }}</p>{% endif %}
   </header>
-
-  <head>
-    <title>Font Awesome Icons</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-
-  <article class="post-content">
-    {{ content }}
-  </article>
-
-  <!-- mathjax -->
-  {% if page.mathjax %}
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      displayMath: [ ['$$','$$'] ],
-      processEscapes: true,
-    }
-  });
-
-  </script>
-  <script type="text/javascript"
-        src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
   {% endif %}
 
-
+  <article class="prose">
+    {{ content }}
+  </article>
 </div>

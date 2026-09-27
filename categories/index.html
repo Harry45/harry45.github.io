@@ -2,27 +2,23 @@
 layout: page
 title: Categories
 description: "An archive of posts sorted by category."
-comments: false
 ---
 
-{% capture site_cats %}{% for cat in site.categories %}{{ cat | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-{% assign cats_list = site_cats | split:',' | sort %}
+{% assign cats = site.categories | sort %}
 
-<ul class="entry-meta inline-list">
-  {% for item in (0..site.categories.size) %}{% unless forloop.last %}
-    {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-  	<li><a href="#{{ this_word }}" class="tag"><span class="term">{{ this_word }}</span> (<span class="count">{{ site.categories[this_word].size }}</span>)</a></li>
-  {% endunless %}{% endfor %}
+<ul class="chips">
+  {% for cat in cats %}
+  <li><a href="#{{ cat[0] | slugify }}">{{ cat[0] }} ({{ cat[1].size }})</a></li>
+  {% endfor %}
 </ul>
 
-{% for item in (0..site.categories.size) %}{% unless forloop.last %}
-  {% capture this_word %}{{ cats_list[item] | strip_newlines }}{% endcapture %}
-	<article>
-	<h2 id="{{ this_word }}" class="tag-heading">{{ this_word }}</h2>
-		<ul>
-    {% for post in site.categories[this_word] %}{% if post.title != null %}
-      <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-    {% endif %}{% endfor %}
-		</ul>
-	</article><!-- /.hentry -->
-{% endunless %}{% endfor %}
+{% for cat in cats %}
+<section>
+  <h2 id="{{ cat[0] | slugify }}">{{ cat[0] }}</h2>
+  <ul class="post-list">
+    {% for post in cat[1] %}
+    {% include post-item.html post=post %}
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

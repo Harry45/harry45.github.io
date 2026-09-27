@@ -1,0 +1,59 @@
+// Design tokens. Light theme is the default; dark applies when the visitor's
+// OS prefers it (unless they chose light) or when they pick it with the toggle.
+
+$bp-mobile: 720px;
+$bp-nav:    880px;
+
+@mixin mobile { @media (max-width: $bp-mobile) { @content; } }
+
+@mixin light-theme {
+    color-scheme: light;
+    --bg:           #ffffff;
+    --surface:      #f5f7fa;
+    --surface-2:    #eef2f7;
+    --text:         #16191f;
+    --text-2:       #414a5a;
+    --muted:        #687184;
+    --border:       #e3e7ee;
+    --accent:       #1f5eb8;
+    --accent-hover: #164a95;
+    --accent-soft:  #e9f1fc;
+    --on-accent:    #ffffff;
+    --shadow:       0 1px 2px rgba(16, 24, 40, .04), 0 6px 20px rgba(16, 24, 40, .06);
+    --header-bg:    rgba(255, 255, 255, .85);
+}
+
+@mixin dark-theme {
+    color-scheme: dark;
+    --bg:           #0e1116;
+    --surface:      #161a21;
+    --surface-2:    #1d222b;
+    --text:         #e8ebf0;
+    --text-2:       #bcc3cf;
+    --muted:        #8d96a7;
+    --border:       #272d38;
+    --accent:       #80b1f5;
+    --accent-hover: #a8c9fa;
+    --accent-soft:  #172437;
+    --on-accent:    #0e1116;
+    --shadow:       0 1px 2px rgba(0, 0, 0, .3), 0 6px 20px rgba(0, 0, 0, .25);
+    --header-bg:    rgba(14, 17, 22, .85);
+}
+
+:root {
+    @include light-theme;
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --radius:    12px;
+    --radius-sm: 8px;
+    --container: 1080px;
+    --prose:     720px;
+    --gutter:    24px;
+
+    @include mobile { --gutter: 16px; }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { @include dark-theme; }
+}
+:root[data-theme="dark"] { @include dark-theme; }

@@ -11,10 +11,11 @@ tags:
   - 
   -
 excerpt:
+description: "Ten intensive days of machine learning, from k-NN to GANs."
 ---
 
 
-<p align="justify">The Yandex Machine Learning School was organised from the 16<sup>th</sup> to 26<sup>th</sup> January. It was a quite intensive school with a series of lectures, homework, assignments, tutorials and exam over the course of 10 days only. In particular, topics covered included the following:</p>
+<p align="justify">The Yandex Machine Learning School took place from 16 to 26 January. It was an intensive programme, combining lectures, homework, assignments, tutorials and an exam within just ten days. The topics covered included:</p>
 
 <ol type="1">
 
@@ -31,7 +32,7 @@ Model Complexity
 </li>
 
 <li>
-Principle Component Analysis, PCA
+Principal Component Analysis, PCA
 </li>
 
 <li>
@@ -96,4 +97,4 @@ Generative Adversarial Networks and Autoencoders
 
 </ol>
 
-<p align="justify">All lectures and tutorials are found on <a href="https://github.com/yandexdataschool/MLatImperial2018">Github</a>.</p>
+<p align="justify">All lectures and tutorials are available on <a href="https://github.com/yandexdataschool/MLatImperial2018">Github</a>.</p>

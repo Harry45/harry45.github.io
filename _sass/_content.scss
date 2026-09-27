@@ -1,0 +1,200 @@
+// Long-form content (pages and posts). The posts predate this design and
+// carry presentational HTML (align="justify", <font>, inline callout colours,
+// fixed-width floated images); the rules marked "legacy" restyle that markup
+// so the post sources can stay untouched.
+
+.prose {
+    color: var(--text);
+    font-size: 1.04rem;
+    line-height: 1.75;
+
+    // A slightly smaller size on phones fits more words per line, so
+    // justified lines need less stretching.
+    @include mobile { font-size: .96rem; line-height: 1.7; }
+
+    > :first-child { margin-top: 0; }
+
+    // Justified paragraphs everywhere; hyphenation keeps word spacing even,
+    // which matters most in narrow phone columns.
+    p {
+        text-align: justify;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphenate-limit-chars: 6 3 2;
+        overflow-wrap: break-word;
+    }
+
+    h1 { font-size: 1.6rem; }
+    h1, h2 { clear: both; margin-top: 2.2em; }
+    h3, h4 { margin-top: 1.8em; }
+
+    ul, ol { padding-left: 1.4em; }
+    li { margin: .3em 0; }
+    li > p { margin: .4em 0 .8em; }
+
+    blockquote {
+        margin: 1.6em 0;
+        padding: .2em 0 .2em 1.25em;
+        border-left: 3px solid var(--accent);
+        color: var(--text-2);
+        font-style: italic;
+        p { margin: .4em 0; }
+        i, em { font-style: italic; }
+    }
+
+    code {
+        font-family: var(--font-mono);
+        font-size: .88em;
+        background: var(--surface-2);
+        border-radius: 5px;
+        padding: .12em .38em;
+    }
+    pre code { background: none; padding: 0; font-size: inherit; }
+
+    pre, .highlight {
+        font-family: var(--font-mono);
+        font-size: .88rem;
+        line-height: 1.6;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        overflow-x: auto;
+    }
+    .highlight pre { margin: 0; border: 0; background: none; padding: 16px 18px; }
+    figure.highlight { margin: 0 0 1.4em; }
+
+    table {
+        border-collapse: collapse;
+        font-size: .95rem;
+        max-width: 100%;
+    }
+    th, td { border: 1px solid var(--border); padding: 6px 10px; }
+    th { background: var(--surface-2); font-weight: 600; }
+
+    iframe { display: block; margin: 0 auto 1.4em; }
+
+    // Wide display equations scroll instead of overflowing the page.
+    mjx-container[display="true"] {
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-width: 100%;
+        padding: 2px 0;
+    }
+
+    &::after { content: ""; display: table; clear: both; }
+}
+
+// ---------------------------------------------------------------- figures
+
+.figure {
+    margin: .4em 0 1.4em;
+
+    img { display: block; width: 100%; border-radius: var(--radius-sm); }
+
+    figcaption {
+        margin-top: .6em;
+        color: var(--muted);
+        font-size: .88rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    &.alignleft  { float: left;  width: 46%; margin: .35em 1.75em 1em 0; }
+    &.alignright { float: right; width: 46%; margin: .35em 0 1em 1.75em; }
+    &.aligncenter, &.align { margin-left: auto; margin-right: auto; }
+
+    @include mobile {
+        &.alignleft, &.alignright { float: none; width: auto; margin: .4em auto 1.4em; }
+    }
+}
+
+.about-photo {
+    float: right;
+    width: 38%;
+    max-width: 280px;
+    margin: .3em 0 1.25em 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+
+    @include mobile { float: none; display: block; width: 60%; margin: 0 auto 1.5rem; }
+}
+
+// ---------------------------------------------------------------- legacy markup
+
+.prose {
+    // Paragraph alignment lives in the .prose p rule above.
+    p[align="center"] { text-align: center; }
+
+    font[size] { font-size: inherit; }
+    font[color] { color: inherit; }
+
+    // Raw <img align> in older posts.
+    img[align="left"]  { float: left;  max-width: 46%; margin: .35em 1.75em 1em 0; border-radius: var(--radius-sm); }
+    img[align="right"] { float: right; max-width: 46%; margin: .35em 0 1em 1.75em; border-radius: var(--radius-sm); }
+    img[align="center"] { display: block; margin: 1em auto; }
+    p[align="center"] img { border-radius: var(--radius-sm); }
+
+    // Text positioned beside floats with fixed margins; the floats handle it now.
+    p[style*="margin-left"] { margin-left: 0 !important; }
+
+    // Yellow "note" boxes.
+    div[style*="FFF8C6"] {
+        background: var(--surface) !important;
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--accent);
+        border-radius: var(--radius-sm);
+        margin: 1.6em 0 !important;
+        padding: 16px 20px !important;
+    }
+
+    table.tableizer-table {
+        font-family: inherit;
+        font-size: .92rem;
+        margin: .4em 1.75em 1em 0;
+        th { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+        td { border-color: var(--border); }
+    }
+
+    // Font Awesome external-link glyphs in reading lists.
+    i.fa { font-size: .8em !important; opacity: .75; }
+
+    @include mobile {
+        img[align="left"], img[align="right"] { float: none; display: block; max-width: 100%; margin: 1em auto; }
+        table.tableizer-table { float: none !important; width: 100% !important; margin-right: 0; }
+    }
+}
+
+// Component lists used inside content pages keep their own spacing.
+.prose .pub-list, .prose .post-list, .prose .chips { padding-left: 0; }
+.prose .pub-list > li, .prose .post-list > li { margin: 0; }
+
+.prose p.jump-links {
+    text-align: left;
+    color: var(--muted);
+    font-size: .95rem;
+    margin-bottom: 1.5rem;
+    a { font-weight: 550; }
+}
+
+// CV-style entries on the About page (experience and education).
+.prose .role {
+    margin: 0 0 1.75rem;
+
+    h3 { margin: 0 0 .15em; font-size: 1.08rem; }
+    h3 a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: .2em; }
+    h3 a:hover { color: var(--accent); text-decoration-color: currentColor; }
+    ul { margin: .5em 0 0; }
+    li { margin: .25em 0; }
+    > p:not(.role__meta) { margin-top: .5em; }
+}
+
+.prose p.role__meta {
+    margin: 0;
+    color: var(--muted);
+    font-size: .92rem;
+    text-align: left;
+}
+
+// Publication entries: titles, authors and venues read better ragged-right.
+.prose .pub p { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
+.prose .pub .pub__abstract div { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }

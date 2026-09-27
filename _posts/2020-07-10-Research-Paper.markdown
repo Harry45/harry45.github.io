@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "Research Paper"
+title:  "How I Take Research to Publication"
 date:   2020-07-10 18:08:00
 author: A.Mootoovaloo
 permalink:
@@ -11,50 +11,51 @@ tags:
   - 
   -
 excerpt:
+description: "The steps I follow to take a research idea to a first-author paper."
 ---
-<p align="justify">In this post, I will go through the steps I have personally found useful to do my research and lead the latter towards a publication. In general, the first paper (as first author) is always the most challenging part. It is through this process that I have learned how to think critically and to answer questions such as 'why is this research important?', 'where is it going to be used', 'how is it different from previous work?', 'what are the new contributions to the field as a whole?', 'how do I manage my time properly?' and various others.</p>
+<p align="justify">In this post, I outline the steps I have found most useful in carrying out research and taking it through to publication. The first first-author paper is generally the most challenging. It was through this process that I learned to think critically and to answer questions such as 'Why is this research important?', 'Where will it be used?', 'How does it differ from previous work?', 'What are its new contributions to the field?' and 'How do I manage my time effectively?'</p>
 
 <ol>
 	<li><b>Project definition</b></li>
-	<p align="justify">In the very first step, we normally start with a project definition. However, there is always an element of risk when defining a project. Some friends of mine have confessed that their projects did not seem to be promising after spending a few months on them.</p>	
+	<p align="justify">The first step is to define the project. There is, however, always an element of risk at this stage: some of my friends have found that their projects no longer seemed promising after several months of work.</p>	
 	<li><b>Brainstorming</b></li>
-	<p align="justify">To avoid pitfalls (as we discussed in the first point), I highly recommend having brainstorming sessions with your collaborators and identify possible risks and limitations.</p>
+	<p align="justify">To avoid the pitfalls described above, I strongly recommend holding brainstorming sessions with your collaborators to identify possible risks and limitations.</p>
 	<blockquote>
 	<p align="justify"><small><i>"If I had an hour to solve a problem I’d spend 55 minutes thinking about the problem and five minutes thinking about solutions."</i> - Albert Einstein</small></p>
 	</blockquote>
 	<li><b>Identify a main reference paper</b></li>
-	<p align="justify">In general, finding a main reference paper is fundamental to the whole process. This implies understanding the paper, Mathematics and be able to implement (code) at least part of the paper.</p>
+	<p align="justify">Finding a main reference paper is fundamental to the whole process. This means understanding the paper and its mathematics, and being able to implement (code) at least part of it.</p>
 	<li><b>Fill in the gaps</b></li>
-	<p align="justify">At this point, we typically have a blurry image of how to channel the main idea (project), a large part due to missing knowledge about a specific topic. It would be very helpful to master certain topics (through textbooks, notes, internet, Youtube, Github) in order to fill in the gaps.</p>
+	<p align="justify">At this point, we typically have only a blurred picture of how to develop the main idea, largely because of gaps in our knowledge of specific topics. It is very helpful to master these topics (through textbooks, lecture notes, online resources, YouTube and GitHub) to fill in the gaps.</p>
 	<li><b>Experiments</b></li>
-	<p align="justify">This is probably the most important part in the entire process, where we will be writing and testing our codes. This step might seem to be daunting for we will encounter many failures. However,</p>	
+	<p align="justify">This is probably the most important part of the entire process, where we write and test our code. It can seem daunting, as we will inevitably encounter many failures. However,</p>	
 	<blockquote>
 	<p align="justify"><small><i>"Failure provides the opportunity to begin again, more intelligently."</i> - Henry Ford</small></p>
 	</blockquote>
 	<li><b>Updates</b></li>
-	<p align="justify">	Crucially, it would be nice to simultaneously document our code and write a draft paper as we are working. This allows us to keep track of everything we have been working on since the start of the project.</p>
+	<p align="justify">Crucially, it is good practice to document our code and draft the paper as we go. This allows us to keep track of everything we have done since the start of the project.</p>
 </ol>
 
 <b>The Paper</b>
-<p align="justify">Different papers have different format. It is important to first check and work with the right format in the very beginning itself to maximise efficiency. Below are some brief suggestions I received from my supervisors:</p>
+<p align="justify">Different journals require different formats, so it is important to identify and adopt the right format from the very beginning to work efficiently. Below are some brief suggestions I received from my supervisors:</p>
 <ol>
 	<li><u>Abstract</u>: Summarise key findings. Numbers are essential.</li>
 	<li><u>Introduction</u>: Motivate the study.</li>
 	<li><u>Body</u>: Elaborate on the theory, data, methods and results.</li>
-	<li><u>Conclusion</u>: Remind the reader what the paper is about and explain briefly that the aims have been met.</li>
+	<li><u>Conclusion</u>: Remind the reader what the paper is about and briefly explain how its aims have been met.</li>
 </ol>
 
 <b>Most Important Suggestions</b>
 
 <ol>
-	<li>Keep in touch with your supervisors (emails and weekly meetings).</li>
-	<li>Have at least one mentor - I have found it easier to speak to my collaborator who is a Research Fellow.</li>
-	<li>Always make notes - we are in a world with a wealth of information. It is important to channel ideas and information.</li>
-	<li>Do not stick with yourself. In other words, do not pigeonhole yourself.</li>
-	<li>Ask questions - there is no stupid question.</li>
+	<li>Keep in regular contact with your supervisors (emails and weekly meetings).</li>
+	<li>Have at least one mentor. I have found it easy to talk to my collaborator, who is a Research Fellow.</li>
+	<li>Always take notes. We live in a world with a wealth of information, and it is important to organise ideas and information.</li>
+	<li>Do not work in isolation. In other words, do not pigeonhole yourself.</li>
+	<li>Ask questions. There is no such thing as a stupid question.</li>
 	<blockquote>
 	<p align="justify"><small><i>"If you ask a stupid question, you may feel stupid; if you don't ask a stupid question, you remain stupid."</i> - Tony Rothman</small></p>
 	</blockquote>
-	<li>Understanding is key. Some pieces of work are rather engineering but we should be able to explain the concept behind.</li>
-	<li>Acknowledge that we do not understand something and as we seek knowledge/help/support, we shall receive.</li>
+	<li>Understanding is key. Some work is largely engineering, but we should still be able to explain the concepts behind it.</li>
+	<li>Acknowledge when you do not understand something; when we seek knowledge, help and support, we will receive it.</li>
 </ol>

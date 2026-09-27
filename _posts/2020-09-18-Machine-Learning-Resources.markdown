@@ -11,9 +11,10 @@ tags:
   - 
   -
 excerpt:
+description: "Curated courses and lectures on machine learning and deep learning."
 ---
 
-<p align="justify">Below is a curated list of courses/lectures/schools which I often use as references for learning Machine Learning techniques. Under Deep Learning, there are various other branches such as Natural Language Processing, Meta Learning and various others. For the latter, we will separately list the resouces available online.</p>
+<p align="justify">Below is a curated list of courses, lecture series and schools that I regularly use as references for learning machine learning techniques. Deep learning itself spans several branches, such as natural language processing and meta-learning; resources for these are listed separately.</p>
 
 <b>General Machine Learning</b>
 

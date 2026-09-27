@@ -1,0 +1,6 @@
+{%- comment -%}Approximate reading time at ~220 words per minute.
+Usage: {% include reading-time.html content=post.content %} ("6 min read"),
+add short=true for the compact form used in lists ("6 min").{%- endcomment -%}
+{%- assign words = include.content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 220 | at_least: 1 -%}
+{{ minutes }} min{% unless include.short %} read{% endunless %}

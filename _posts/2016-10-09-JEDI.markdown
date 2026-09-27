@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "JEDI - An Alternate Route to Conventional Workshops"
+title:  "JEDI: An Alternative Route to Conventional Workshops"
 date:   2016-10-09 08:00:00
 author: A.Mootoovaloo
 permalink:
@@ -11,15 +11,16 @@ tags:
   - 
   -
 excerpt:
+description: "Why hands-on JEDI workshops achieve more than conventional conferences."
 ---
 
 
-<p align="justify">JEDI (Joint Exchange Development Initiative) is a programme brought forward by <a href="https://cosmoaims.wordpress.com/2010/01/01/bruce-bassett/">Prof Bruce Bassett</a>, Dr Nadeem Oozeer and their team. The idea is straightforward. In most of the conferences, people will normally present their work and if it happens that we go to two different conferences, coincidentally, we might eventually find the same persons giving the same presentations. Therefore, instead of spending so much money on conferences, why don't we bring all academic staffs and students together for one week and work on a completely new project? </p> 
+<p align="justify">JEDI (Joint Exchange Development Initiative) is a programme initiated by <a href="https://cosmoaims.wordpress.com/2010/01/01/bruce-bassett/">Prof Bruce Bassett</a>, Dr Nadeem Oozeer and their team. The idea is straightforward. At most conferences, researchers present their existing work, and it is not unusual to see the same people giving the same presentations at two different conferences. So, rather than spending large sums on conferences, why not bring academic staff and students together for a week to work on entirely new projects?</p> 
 
-<p align="justify">So, we would normally organise it in a beautiful place (possibly in a different country, so that, some of the local students can benefit from it), work together, cook together, stay together, thus eliminating the gap between students and academic staffs. Having done so in the past few years, several projects initiated in JEDIs, have not only led to publications (see for example <a href="https://arxiv.org/abs/1501.05304">BIRO</a>) but also, students have had the chance to continue further studies, for example, undergraduate to MSc, MSc to PhD and so forth. In short, students have been able to advance in their career. For me personally, this programme also gives the students the opportunity to be future leaders.</p> 
-
-
-<p align="justify">My participations in JEDIs have enabled me to learn a lot. I was lucky that I got the chance to be part of it at a very young age. I had good grades for my undergraduate studies (BSc (Hons) Physics with Computing) in Mauritius but I had no idea of where to use the skills and knowledge I had gained through this degree. It was not only until I participated in one JEDI that I came to learn about Data Science, Machine Learning, Deep Learning and so forth. The transfer of scientific ideas, skills, knowledge towards solving various other non-scientific problems is simply amazing. It all came back and I could use my mathematics and coding techniques again. As Steve Jobs rightly said, "You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future."</p> 
+<p align="justify">A JEDI is typically held in an inspiring location, often in a different country so that local students can benefit, where participants work, cook and live together, closing the gap between students and academic staff. Over the past few years, several projects initiated at JEDIs have led to publications (see, for example, <a href="https://arxiv.org/abs/1501.05304">BIRO</a>), and many students have gone on to further study, from undergraduate to MSc, MSc to PhD, and beyond. In short, the programme has helped students advance their careers. In my view, it also prepares students to become future leaders.</p> 
 
 
-<p align="justify">Now that many students have an experience of how the JEDI works, we, students work together with Prof Bruce Bassett and his team to organise various such events in different places/countries in Africa. Until now, I have participated in a few of them and I was also sometimes on the organising team.</p>
+<p align="justify">Taking part in JEDIs has taught me a great deal, and I was fortunate to get involved at an early stage in my career. I had graduated with good grades in my undergraduate degree (BSc (Hons) Physics with Computing) in Mauritius, but I was unsure how to apply the skills and knowledge I had gained. It was only when I took part in a JEDI that I discovered data science, machine learning and deep learning. Seeing scientific ideas, skills and knowledge transferred to a wide range of non-scientific problems was remarkable, and it allowed me to put my mathematics and programming skills to use once again. As Steve Jobs rightly said, "You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future."</p> 
+
+
+<p align="justify">Now that many students have experienced how a JEDI works, we work with Prof Bruce Bassett and his team to organise similar events in different countries across Africa. To date, I have taken part in several of them, sometimes as a member of the organising team.</p>

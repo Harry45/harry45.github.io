@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<div class="container">
+
+  <section class="hero">
+    <div>
+      <p class="hero__eyebrow">{{ page.eyebrow }}</p>
+      <h1 class="hero__title">{{ site.title }}</h1>
+      <p class="hero__lead">{{ page.lead }}</p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="{{ '/about/' | prepend: site.baseurl }}">About me</a>
+        <a class="button" href="{{ '/publications/' | prepend: site.baseurl }}">Publications</a>
+        {% include social.html %}
+      </div>
+    </div>
+    <img class="hero__photo" src="{{ '/images/harry-headshot.jpg' | prepend: site.baseurl }}" alt="{{ site.title }}" width="280" height="280">
+  </section>
+
+  {% if page.affiliations %}
+  <section class="affiliations" aria-label="Organisations">
+    <p class="affiliations__label">Worked and studied at</p>
+    <ul class="affiliations__list">
+      {% for org in page.affiliations %}<li>{{ org | escape }}</li>{% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if page.focus %}
+  <section class="section" aria-labelledby="focus-heading">
+    <div class="section__header"><h2 id="focus-heading">What I work on</h2></div>
+    <div class="cards">
+      {% for item in page.focus %}
+      <div class="card">
+        <span class="card__icon">{% include icon.html name=item.icon %}</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="section" aria-labelledby="pubs-heading">
+    <div class="section__header">
+      <h2 id="pubs-heading">Recent publications</h2>
+      <a href="{{ '/publications/' | prepend: site.baseurl }}">All publications &rarr;</a>
+    </div>
+    <ol class="pub-list">
+      {% for pub in site.data.publications limit: 3 %}
+        {% include publication.html pub=pub abstract=false %}
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="posts-heading">
+    <div class="section__header">
+      <h2 id="posts-heading">Recent writing</h2>
+      <a href="{{ '/blog/' | prepend: site.baseurl }}">All posts &rarr;</a>
+    </div>
+    <ul class="post-list">
+      {% for post in site.posts limit: 4 %}
+      {% include post-item.html post=post %}
+      {% endfor %}
+    </ul>
+  </section>
+
+</div>

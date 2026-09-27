@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "Linear Regression"
+title:  "Linear Regression with Maximum Likelihood"
 date:   2017-03-02 06:00:00
 author: A.Mootoovaloo
 permalink:
@@ -11,11 +11,14 @@ tags:
   - 
   -
 excerpt:
+extra_css: |
+  table {width: 53%;}
+description: "Maximum likelihood fitting, applied to an A-Level physics experiment."
 ---
 
-<p align="justify">One common problem in Statistics is to learn a functional relationship between independent variables and dependent variable. For example, we may want to know how the price of houses varies with the area of the land, the total size of the house and various other criteria. In this particular case, the price of the houses is the dependent variable, also often referred to as the response variable while the area of the land and total size of the house are the independent variables, also known as the attribute variables.</p>
+<p align="justify">A common problem in statistics is learning the functional relationship between independent variables and a dependent variable. For example, we may want to know how house prices vary with the area of the land, the total size of the house and other criteria. Here, the house price is the dependent variable, often called the response variable, while the land area and total size of the house are the independent variables, also known as attribute variables.</p>
 
-<p align="justify">We will first begin with linear modelling, that is, given a set of attributes, we want infer a linear relationship between the attributes and the response. The function which we want to fit is typically governed by a set of parameters, say $\theta_{i}$. However, before indulging into this topic, it is worth discussing linear and non-linear models.</p>
+<p align="justify">We begin with linear modelling: given a set of attributes, we want to infer a linear relationship between the attributes and the response. The function we want to fit is typically governed by a set of parameters, say $\theta_{i}$. Before going further, however, it is worth distinguishing between linear and non-linear models.</p>
 
 <div style="background-color: #FFF8C6; margin-left: 20px; margin-right: 20px; padding-bottom: 8px; padding-left: 8px; padding-right: 8px; padding-top: 8px;">
 <b>Linear and Non-Linear Models</b><br/>
@@ -25,31 +28,31 @@ The equation
 y=\theta_{0} + \theta_{1}x + \theta_{2}x^2
 \end{align}
 
-is a linear model model because it is linear in the parameters $\theta_{i}$. In contrast, the model 
+is a linear model because it is linear in the parameters $\theta_{i}$. In contrast, the model 
 
 \begin{align}
 y=\textrm{sin}\left(\omega x + \phi\right)
 \end{align}
 
-is a non-linear model since it includes parameters $\left(\omega,\,\phi\right)$ which are non-linear. 
+is a non-linear model, since it is non-linear in the parameters $\left(\omega,\,\phi\right)$.
  
 </div>
 
 <h2>Maximum Likelihood Method</h2>
-<p align="justify">Suppose, we now want to fit a polynomial $f\left(x\right)$ of order $M$ to some observed data $\left(x_{i},\,y_{i}\right)$ where $i=0,\,1,\,2,\ldots N-1$. We further assume that they are corrupted with Gaussian noise, $\sigma_{i}$. Then, each observed datum can be described by a Gaussian:
+<p align="justify">Suppose we now want to fit a polynomial $f\left(x\right)$ of order $M$ to some observed data $\left(x_{i},\,y_{i}\right)$ where $i=0,\,1,\,2,\ldots N-1$. We further assume that the data are corrupted by Gaussian noise, $\sigma_{i}$, so that each observed datum can be described by a Gaussian:
 
 \begin{align}
 \mathcal{P}\left(y_{i}\left|\boldsymbol{\theta}\right.\right)=\dfrac{1}{\sqrt{2\pi\sigma_{i}^{2}}}\,\textrm{exp}\left[-\dfrac{1}{2}\left(\dfrac{y_{i}-f\left(x_{i}\left|\boldsymbol{\theta}\right.\right)}{\sigma_{i}}\right)^{2}\right]
 \end{align}
 
-where $\boldsymbol{\theta}$ is the set of parameters $\left(\theta_{0},\,\theta_{1},\ldots \theta_{M}\right)$. For simplicity, we will explain this method by using a linear fit to the data, that is, $f\left(x\left|\theta_{0},\,\theta_{1}\right.\right)=\theta_{0}+\theta_{1}x$. Assuming that the data point is independent from each other, the likelihood is simply a product of the individual probability distribution of the above. 
+where $\boldsymbol{\theta}$ is the set of parameters $\left(\theta_{0},\,\theta_{1},\ldots \theta_{M}\right)$. For simplicity, we illustrate the method with a linear fit to the data, $f\left(x\left|\theta_{0},\,\theta_{1}\right.\right)=\theta_{0}+\theta_{1}x$. Assuming the data points are independent, the likelihood is simply the product of these individual probability distributions.
 
 </p>
 
 
 <div style="background-color: #FFF8C6; margin-left: 20px; margin-right: 20px; padding-bottom: 8px; padding-left: 8px; padding-right: 8px; padding-top: 8px;">
 <b>Matrix and Vector Notations</b><br/>
-We will define the vector $\mathbf{b}$ as:
+We define the vector $\mathbf{b}$ as
 
 $$
 \mathbf{b=\left(\begin{array}{c}
@@ -61,7 +64,7 @@ $$
 \end{array}\right)}
 $$
 
-and the design matrix, $\mathbf{D}$ as: 
+and the design matrix $\mathbf{D}$ as
 
 $$
 \mathbf{D}=\left(\begin{array}{cc}
@@ -75,14 +78,14 @@ $$
 $$
 </div>
 
-<p align="justify">Therefore, the likelihood (ignoring the pre-factor) can be written as:
+<p align="justify">The likelihood (ignoring the pre-factor) can therefore be written as
 
 \begin{align}
 \mathcal{P}\left(\mathbf{y}\left|\boldsymbol{\theta}\right.\right)\propto\textrm{exp}\left[-\dfrac{1}{2}\left(\mathbf{b-\mathbf{D}\boldsymbol{\theta}}\right)^{\textrm{T}}\left(\mathbf{b-\mathbf{D}\boldsymbol{\theta}}\right)\right]
 \label{eq:likelihood}
 \end{align}
 
-Our aim is to maximise the likelihood. Therefore, the derivative of the likelihood with respect to the parameters should be equal to zero. However, maximising the likelihood is equivalent to maximising the log-likelihood since the latter is a monotonic transformation applied to the likelihood. Some useful tricks when differentiating with respect to a vector are given below.</p>
+Our aim is to maximise the likelihood, so its derivative with respect to the parameters should be zero. Maximising the likelihood is equivalent to maximising the log-likelihood, since the logarithm is a monotonic transformation. Some useful identities for differentiating with respect to a vector are given below.</p>
 
 <div style="background-color: #FFF8C6; margin-left: 20px; margin-right: 20px; padding-bottom: 8px; padding-left: 8px; padding-right: 8px; padding-top: 8px;">
 <b>Differentiating with respect to a vector</b><br/>
@@ -104,20 +107,20 @@ For further details, see <a href="https://en.wikipedia.org/wiki/Matrix_calculus"
 </div>
 
 
-<p align="justify">Using Equation \eqref{eq:likelihood} and the above useful identities, </p>
+<p align="justify">Using Equation \eqref{eq:likelihood} and these identities, we obtain</p>
 
 \begin{align}
 \boldsymbol{\theta}_{\textrm{MLE}}=\left(\mathbf{D}^{\textrm{T}}\mathbf{D}\right)^{-1}\mathbf{D}^{\textrm{T}}\mathbf{b}
 \end{align}
 
 
-<p align="justify"> The matrix $\mathbf{C}=\left(\mathbf{D}^{\textrm{T}}\mathbf{D}\right)^{-1}$ is called the covariance matrix and gives the standard uncertainties associated with the parameters determined. In particular, the diagonal elements of this matrix give the variances of the parameters while the off-diagonal elements give the covariances between the parameters $\theta_{j}$ and $\theta_{k}$. Hence, the errors on the parameters are equal to the square root of the diagonal elements of the covariance matrix $\mathbf{C}$.</p>
+<p align="justify">The matrix $\mathbf{C}=\left(\mathbf{D}^{\textrm{T}}\mathbf{D}\right)^{-1}$ is the covariance matrix, which gives the uncertainties on the fitted parameters. Its diagonal elements are the variances of the parameters, and its off-diagonal elements are the covariances between parameters $\theta_{j}$ and $\theta_{k}$. The errors on the parameters are therefore the square roots of the diagonal elements of $\mathbf{C}$.</p>
 
 <h2>Example - A Physics Problem</h2>
 
 <img src="/images/Linear_Regression_Circuit.png" align="left" width = "420"/>
 
-<p align="justify">We will use the above explanation to answer a Physics problem (Physics 9702 November 2016 Paper 52). A student is investigating the characteristics of different light-emitting diodes (LEDs). Each LED
+<p align="justify">We now apply this method to a physics problem (Physics 9702, November 2016, Paper 52). A student is investigating the characteristics of different light-emitting diodes (LEDs). Each LED
 needs a minimum potential difference across it to emit light. The circuit is set up as shown on the left. </p>
 
 
@@ -127,7 +130,7 @@ needs a minimum potential difference across it to emit light. The circuit is set
 V=p\lambda^{q}
 \end{align}
 
-where $p$ and $q$ are constants. Therefore, if we are to plot a graph of $\textrm{lg }V$ on the $y$-axis against $\textrm{lg }\lambda$ on the $x$-axis, the gradient of the straight line will correspond to $q$ while the $y$-intercept to $\textrm{lg }p$. To be explicit, 
+where $p$ and $q$ are constants. If we plot $\textrm{lg }V$ on the $y$-axis against $\textrm{lg }\lambda$ on the $x$-axis, the gradient of the straight line corresponds to $q$ and the $y$-intercept to $\textrm{lg }p$. Explicitly,
 
 $$
 \textrm{lg }V = q\,\textrm{lg }\lambda + \textrm{lg }p
@@ -136,19 +139,16 @@ $$
 
 <img src="/images/Linear_Regression_Data.png" align="right" width = "420"/>
 
-<p align="justify">The values of $V$ and $\lambda$ are given in the table below and we also calculate $\textrm{lg }\lambda$ and $\textrm{lg }V$, with its associated error. The error in $\textrm{lg }V$ is:
+<p align="justify">The values of $V$ and $\lambda$ are given in the table below, together with $\textrm{lg }\lambda$ and $\textrm{lg }V$ and its associated error. The error in $\textrm{lg }V$ is
 
 $$
 \sigma_{\textrm{lg }V} = \dfrac{\Delta V}{V}
 $$
 
-See this <a href="http://phys114115lab.capuphysics.ca/App%20A%20-%20uncertainties/appA%20propLogs.htm">link</a> for further detail. For this problem, we calculate $\textrm{lg }\lambda$ and $\textrm{lg }V$ to two decimal places. We assume that each data point is Gaussian distributed with mean, $\mu=\textrm{lg }V$ and standard deviation, $\sigma = \sigma_{\textrm{lg }V}$. An illustration of this assumption is shown on the right. We are now ready to plot the graph of $\textrm{lg }V$ versus $\textrm{lg }\lambda$. We find that the gradient is equal to $2.60$ while the $y$-intercept is equal to $7.56$.</p>
+See this <a href="http://phys114115lab.capuphysics.ca/App%20A%20-%20uncertainties/appA%20propLogs.htm">link</a> for further details. We calculate $\textrm{lg }\lambda$ and $\textrm{lg }V$ to two decimal places, and assume that each data point is Gaussian distributed with mean $\mu=\textrm{lg }V$ and standard deviation $\sigma = \sigma_{\textrm{lg }V}$, as illustrated on the right. Plotting $\textrm{lg }V$ against $\textrm{lg }\lambda$, we find a gradient of $-2.60$ and a $y$-intercept of $7.56$.</p>
 
 
 
-<style>
-table {width: 53%;}
-</style>
 
 
 <table class="tableizer-table" align = "left">
@@ -161,7 +161,7 @@ table {width: 53%;}
  <tr><td align="center">470</td><td align="center">$4.1\pm0.1$</td><td align="center">2.67</td><td align="center">$0.61\pm0.02$</td></tr>
 </tbody></table>
 
-<p align="justify" style="margin-left:32em">Moreover, the covariance matrix is: 
+<p align="justify" style="margin-left:32em">The covariance matrix is
 
 $$
 \mathbf{C}=\left(\begin{array}{cc}
@@ -174,25 +174,25 @@ $$
 Hence, 
 
 $$
-q=-2.60\pm0.84
+q=-2.60\pm0.31
 $$
 
 $$
-\textrm{lg }p = 7.56\pm0.31
+\textrm{lg }p = 7.56\pm0.82
 $$
 </p>
 <img src="/images/Linear_Regression_Fit.png" align="right" width = "420"/>
 
 
-<p align="justify" style="margin-top:3em">Therefore, in short, the estimates of $p$ and $q$ are $3.61\times10^{7}$ and $-2.60$ respectively. We can also learn about the correlation between the two parameters from the covariance matrix. In particular, since the off-diagonal elements are negative, this implies that the two parameters are negatively correlated, that is, an increase in one parameter results in the decrease of the other. This is illustrated in the figure below, which also shows the credible intervals at $1\sigma$, $2\sigma$ and $3\sigma$. It is also worth mentioning that the distribution of the two parameters $\left(\textrm{lg }p,\,q\right)$ are Gaussian distributed since we are working with a linear model. In addition to this, we can use the values of $p$ and $q$ to estimate the minimum potential difference required if a different diode is used, for example, a diode emitting a wavelength of $950$ nm. 
+<p align="justify" style="margin-top:3em">In summary, the estimates of $p$ and $q$ are $3.61\times10^{7}$ and $-2.60$, respectively. The covariance matrix also tells us about the correlation between the two parameters: since the off-diagonal elements are negative, the parameters are negatively correlated, meaning that an increase in one corresponds to a decrease in the other. This is illustrated in the figure below, which also shows the $1\sigma$, $2\sigma$ and $3\sigma$ credible intervals. Note also that the joint distribution of the two parameters $\left(\textrm{lg }p,\,q\right)$ is Gaussian, since we are working with a linear model. Finally, the values of $p$ and $q$ can be used to estimate the minimum potential difference required for a different diode, for example, one emitting at a wavelength of $950$ nm.
 </p>
 
 <img src="/images/Linear_Regression_Correlation.png" align="left" width = "420"/>
 
 <h2>Summary and Conclusion</h2> 
-<p align="justify" style="margin-left:28em">In this post, we have gone through one method of inferring parameters, namely, the Maximum Likelihood Estimator. We have also provided an example to illustrate this method. It does provide a good estimate of the parameters along with their associated errors. Moreover, we can also learn about the correlation between the parameters using the covariance matrix. </p>
+<p align="justify" style="margin-left:28em">In this post, we have covered one method of inferring parameters, the Maximum Likelihood Estimator, and illustrated it with an example. The method provides good estimates of the parameters and their associated errors, and the covariance matrix also reveals the correlations between the parameters.</p>
 
-<p align="justify" style="margin-left:28em">In addition to this, if we had some prior information on the parameters, then the concept of Bayesian Statistics is invoked. The concept is not very different, except that we would have had a prior probability distribution for each parameter. Additionally, instead of finding the MLE, we will end up having the MAP, that is, the Maximum a Posteriori estimates of the parameters. If uniform distributions are assumed, then the MAP coincide with the MLE.</p>
+<p align="justify" style="margin-left:28em">If we had prior information on the parameters, we would turn to Bayesian statistics. The approach is similar, except that each parameter would have a prior probability distribution, and instead of the MLE we would obtain the MAP, or Maximum a Posteriori, estimates of the parameters. With uniform priors, the MAP and MLE coincide.</p>
 
 
 

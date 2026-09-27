@@ -1,0 +1,12 @@
+{%- assign p = include.post -%}
+{%- assign date_format = include.date_format | default: "%b %Y" -%}
+<li class="post-list__item">
+  <time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: date_format }}</time>
+  <div>
+    <div class="post-list__head">
+      <a class="post-list__title" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+      <span class="post-list__time">{% include reading-time.html content=p.content short=true %}</span>
+    </div>
+    {% if p.description %}<p class="post-list__desc">{{ p.description }}</p>{% endif %}
+  </div>
+</li>

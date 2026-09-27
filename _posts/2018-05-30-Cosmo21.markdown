@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "COSMO21 and ADAIX (Valencia)"
+title:  "COSMO21 and ADAIX 2018 (Valencia)"
 date:   2018-05-30 20:30:00
 author: A.Mootoovaloo
 permalink:
@@ -11,13 +11,14 @@ tags:
   - 
   -
 excerpt:
+description: "Data science tools and machine learning talks from ADAIX and COSMO21."
 ---
 
 {% include image.html url="/images/valencia.jpeg" caption="Valencia" width=400 height=300 align="right" style = "margin-left: 10px"%}
 
 <!--  <img src="/images/andrew-ng.jpg" align="left" width = "400" style = "margin-right: 10px; margin-bottom: 10px"/> -->
 
-<p align="justify">The <a href="http://ada.cosmostat.org/">ADAIX</a> and <a href="https://cosmo21.cosmostat.org/">COSMO21</a> are typically held together and were held in Valencia from 20<sup>th</sup> to 25<sup>th</sup> May 2018. The ADAIX Summer School is more practical and the goal is to aid researchers to become more familiar with the latest tools and techniques in Data Science, which will eventually be very helpful in the era of massive surveys. In particular, we covered the following topics:</p>
+<p align="justify">The <a href="http://ada.cosmostat.org/">ADAIX</a> summer school and the <a href="https://cosmo21.cosmostat.org/">COSMO21</a> conference are typically held together, and took place in Valencia from 20 to 25 May 2018. The ADAIX summer school is practical in focus, with the goal of familiarising researchers with the latest tools and techniques in data science, which will be invaluable in the era of massive surveys. The topics covered included:</p>
 <ul>
   <li>Machine Learning</li>
   <li>Bayesian Methods</li>
@@ -26,7 +27,7 @@ excerpt:
   <li>Compressed sensing based instrumentation</li> 
 </ul>
 
-<p align="justify">On the other hand, COSMO21 consisted of a series of talks from researchers and the ones which I was particularly interested in include:</p>
+<p align="justify">COSMO21, by contrast, consisted of a series of research talks. Those I found particularly interesting included:</p>
 
 <ol type="1">
 <li>Multiscale Cosmological Data Analysis with Deep Convolutional Networks (<a href="http://cosmo21.cosmostat.org/wp-content/uploads/2018/06/talk_Mallat.pdf"><i style="font-size:12px" class="fa">&#xf08e;</i></a>)</li>

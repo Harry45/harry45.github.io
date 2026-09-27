@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title:  "Surviving A Fast Growing Community Without Dying"
+title:  "Surviving a Fast-Growing Community Without Dying"
 date:   2016-10-10 12:00:00
 author: A.Mootoovaloo
 permalink:
@@ -11,17 +11,17 @@ tags:
   - 
   -
 excerpt:
+extra_css: |
+  blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 100px;
+  margin-right: 100px;
+  }
+description: "Lessons from PyConZA on culture, flexibility and growing communities."
 ---
 
-<style>
-blockquote {
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-</style>
 
 <blockquote>
 <p align="justify"><i>"Emotions matter. You can tell people how to behave, but you can't tell people how to think and not everyone reacts the same way"</i></p>
@@ -29,15 +29,15 @@ blockquote {
 
 {% include image.html url="/images/flavio.jpg" caption="Flavio giving his talk at PyConZA (2016)" width=400 align="right" %}
 
-<p align="justify">The <a href="https://za.pycon.org/">PyConZA</a> was organised on the 6<sup>th</sup> and 7<sup>th</sup> October at the River Club in Observatory. The most impressive talk, at least for me, which had nothing to do with Python was <a href="https://it.linkedin.com/in/fpercoco">Flavio</a>'s talk. It was easy to follow him throughout the talk and he had a real sense of humour. Most importantly, I would strongly recommend this talk (which is now available on <a href="https://www.youtube.com/watch?v=bW_AEmKbB_o">Youtube</a>) as I believe that every young persons willing to join the industry will be well prepared, at least morally.</p> 
+<p align="justify"><a href="https://za.pycon.org/">PyConZA</a> took place on 6 and 7 October at the River Club in Observatory. For me, the most impressive talk, and one that had nothing to do with Python, was given by <a href="https://it.linkedin.com/in/fpercoco">Flavio</a>. He was easy to follow throughout and had a real sense of humour. I strongly recommend the talk (now available on <a href="https://www.youtube.com/watch?v=bW_AEmKbB_o">YouTube</a>), as I believe it will help any young person planning to join the industry to be well prepared, at least in outlook.</p> 
 
-<p align="justify">He started by defining the 3 most basic terms: system, culture and flexibility which were not even clear to me what they meant until he explained them in simple terms. Flavio defines a system as being a mean of empowering humans to be amazing, a culture as the way humans do things (alternatively another answer from the audience was to define it as the rule which defines how a system works) and flexibility as the level of tolerance for variance in the system. Someone in the audience also defined flexibility as the ability to change the system and the culture! Flavio went on to explain what he really meant by the above three terms. In particular, he emphasized that tolerating variance in your community is a way to empower humans, from any culture which leads them to be simply amazing. On the other hand, community creates processes, which in turn lead to governance. Governance itself is essential to ensure growth. Governance will in principle follow the community and it is therefore important to know and understand our community.</p> 
+<p align="justify">He began by defining three basic terms: system, culture and flexibility. Their meaning was not entirely clear to me until he explained them in simple terms. Flavio defined a system as a means of empowering people to be amazing; a culture as the way people do things (another suggestion from the audience was the set of rules that defines how a system works); and flexibility as the level of tolerance for variance in the system. Someone in the audience also defined flexibility as the ability to change the system and the culture. Flavio then explained what he meant by these three terms. In particular, he emphasised that tolerating variance within a community empowers people from any culture to be simply amazing. At the same time, a community creates processes, which in turn lead to governance, and governance is essential for growth. Since governance should, in principle, follow the community, it is important to know and understand our community.</p> 
 
-<p align="justify">He further described a set of attitudes and behaviours which are relevant in a growing community. Being a good listener is a crucial factor, although we cannot make everyone happy. Being humble and objective will simplify things to a huge extent. Usually, a community will set the expectations and it is important to have clear expectations in order to be objective. It is also often a good practice to set the bar at a reasonable level. Above all, communicating the expectations is the key and it is sometimes better to over-communicate! Acknowledging our colleagues at the workplace is another important factor. The contribution of each and every person leads to excellent results.</p>
+<p align="justify">He went on to describe attitudes and behaviours that matter in a growing community. Being a good listener is crucial, even though we cannot make everyone happy. Being humble and objective simplifies things enormously. A community usually sets its own expectations, and clear expectations are essential for objectivity. It is also good practice to set the bar at a reasonable level. Above all, communicating expectations is key, and it is sometimes better to over-communicate. Acknowledging our colleagues at work is another important factor, as the contribution of every individual leads to excellent results.</p>
 
-<p align="justify">Moreover, unlike computers, humans, from different cultural background, are subject to emotion and different cultures bring different perspectives and hence, it is important that we all strive for diversity. On the other hand, tribal thinking is certainly bad. In fact, it is crucial to build a community of doers, rather than a community of ranters! It is also important to understand that many humans could wear different hats. You could be working for Facebook but you could be holding another research position in academia as well. It happens and therefore it is important to understand others' situations. On this note, we should all be aware of Time Zone! You may be based in Germany but you have a colleague in Japan and hence, you will have to cope with the situation.</p>
+<p align="justify">Unlike computers, people are subject to emotion, and different cultures bring different perspectives, so it is important that we all strive for diversity. Tribal thinking, by contrast, is harmful; it is crucial to build a community of doers rather than a community of ranters. It is also important to recognise that many people wear different hats. Someone might work for Facebook while also holding a research position in academia. This is common, so it is important to understand others' situations. On a related note, we should all be mindful of time zones: you may be based in Germany while a colleague is in Japan, and you will need to accommodate this.</p>
 
-<p align="justify">On a conclusive note, Flavio also spoke about statistics. Statistics indicate that statistics is not good! If we give a human a number, he will do anything to make it bigger. As the community grows, the processes will evolve. However, no matter how complicated it gets, "technology is social before it's technical - Gilles Deleuza." On a final note, saying thanks will always make your colleague feel better and respected. </p>
+<p align="justify">Towards the end, Flavio also spoke about statistics, noting wryly that statistics show statistics are not good: give someone a number, and they will do anything to make it bigger. As a community grows, its processes will evolve. However, no matter how complicated things become, "technology is social before it's technical" (Gilles Deleuze). Finally, saying thank you will always make colleagues feel valued and respected. </p>
 
 
 
