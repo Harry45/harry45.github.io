@@ -9,15 +9,7 @@ permalink: /about/
 <p class="print-header__meta">London · arrykrish@gmail.com · harry45.github.io · linkedin.com/in/arrykrishna</p>
 </div>
 
-<img class="about-photo" src="/images/harry-headshot.jpg" alt="Arrykrishna Mootoovaloo" width="280" height="280">
-
-<!-- {% include image.html url="/images/A_Mootoovaloo.jpg" caption="" width=400 align="right" %} -->
-
-<!-- <img src="/images/A_Mootoovaloo.jpg" align="right" width = "400" style = "margin-left: 10px; margin-bottom: 10px"/> -->
-
 <p align="justify">Arrykrishna Mootoovaloo is a researcher in London who designs statistical and machine learning models that turn complex data into reliable decisions. Before moving into industry, he was a Research Fellow at the University of Oxford, developing deep learning and probabilistic models to accelerate scientific computation. He completed his PhD at Imperial College London, specialising in statistical machine learning, where his research focused on building <b>Gaussian Process</b> emulators to accelerate computationally expensive calculations in cosmology. He is also interested in applying machine learning to global challenges in sustainability.</p>
-
-<p align="justify">He has a strong interest in technology and enjoys learning new tools. His background in physics has shaped a rigorous, principled approach to problem-solving, with the aim of producing work that benefits the wider community. Mathematics, the common language of scientists and engineers, underpins his effort to develop a deep understanding of the problems he works on. Outside research, he enjoys reading and watching football.</p>
 
 <blockquote class="about-quote">
 <p align="justify"><i>"You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future."</i> - Steve Jobs</p>
